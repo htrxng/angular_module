@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<fieldset class="w-75 mx-auto">
+    <legend class="text-center my-4"><span class="text-secondary">ADD SERVICE</span></legend>
+    <div>
+        <input type="hidden" disabled>
+    </div>
+    <div class="form-outline w-25 mx-auto my-4">
+        <input class="form-control" id="facilityCode" type="text"/>
+        <label class="form-label" for="facilityCode">Service Code</label>
+    </div>
+    <div class="form-outline w-25 mx-auto my-4">
+        <input class="form-control" id="name" type="text"/>
+        <label class="form-label" for="name">Service Name</label>
+    </div>
+    <div class="form-outline w-25 mx-auto my-4">
+        <input class="form-control" id="serviceArea" type="text"/>
+        <label class="form-label" for="serviceArea">Area</label>
+    </div>
+    <div class="form-outline w-25 mx-auto my-4">
+        <input class="form-control" id="serviceCost" type="text"/>
+        <label class="form-label" for="serviceCost">Cost</label>
+    </div>
+    <div class="form-outline w-25 mx-auto my-4">
+        <input class="form-control" id="serviceMaxPeople" type="text"/>
+        <label class="form-label" for="serviceMaxPeople">Capacity</label>
+    </div>
+    <div class="form-outline w-25 mx-auto my-4">
+        <input class="form-control" id="standardRoom" type="text"/>
+        <label class="form-label" for="standardRoom">Standard</label>
+    </div>
+    <div class="form-outline w-25 mx-auto my-4">
+        <input class="form-control" id="descriptionOtherConvenience" type="text"/>
+        <label class="form-label" for="descriptionOtherConvenience">Other Convenience</label>
+    </div>
+    <div class="form-outline w-25 mx-auto my-4" id="input-pool">
+        <input class="form-control" id="pool" type="text"/>
+        <label class="form-label" for="pool">Pool Area</label>
+    </div>
+    <div class="form-outline w-25 mx-auto my-4" id="input-floors">
+        <input class="form-control" id="numberOfFloors" type="text"/>
+        <label class="form-label" for="numberOfFloors">Number Of Floors</label>
+    </div>
+    <div class="form-group row">
+        <label for="facilityTypeId" class="col-sm-3 col-form-label">Service type</label>
+        <div class="col-sm-9">
+            <select id="facilityTypeId"
+                    class="form-control"
+                    onchange="showFacilityType()">
+                <option value="null">Select Facility type</option>
+                <option value="1">Villa</option>
+                <option value="2">House</option>
+                <option value="null">Room</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="rentType" class="col-sm-3 col-form-label">Service type</label>
+        <div class="col-sm-9">
+            <select class="form-control"
+                    id="rentType"
+                    name="rentType">
+                <option value="null">Select Rent type</option>
+                <option value="1">Hour</option>
+                <option value="2">Day</option>
+                <option value="3">Month</option>
+                <option value="4">Year</option>
+            </select>
+        </div>
+    </div>
+</fieldset>
+</body>
+<script>
+    showFacilityType();
+
+    function showFacilityType() {
+        let selected = $("#facilityTypeId").val();
+        if (selected == 3) { // Room
+            $("#villaAndHouseOnly").hide();
+            $("#villaOnly").hide();
+            $("#roomOnly").show();
+            $("#villaAndHouseOnly").find("input").each(function () {
+                $(this).val("");
+            });
+            $("#villaOnly").find("input").each(function () {
+                $(this).val("");
+            });
+        } else if (selected == 2) { //House
+            $("#villaAndHouseOnly").show();
+            $("#villaOnly").hide();
+            $("#roomOnly").hide();
+            $("#villaOnly").find("input").each(function () {
+                $(this).val("");
+            });
+            $("#roomOnly").find("input").each(function () {
+                $(this).val("");
+            });
+        } else if (selected == 1) { //Villa
+            $("#villaAndHouseOnly").show();
+            $("#villaOnly").show();
+            $("#roomOnly").hide();
+            $("#roomOnly").find("input").each(function () {
+                $(this).val("");
+            });
+        } else {
+            $("#villaAndHouseOnly").show();
+            $("#villaOnly").show();
+            $("#roomOnly").show();
+        }
+    }
+</script>
+</html>
