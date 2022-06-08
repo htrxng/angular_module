@@ -1,0 +1,49 @@
+#hinh_tron_do {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  border-radius: 50%;
+  -moz-border-radius:50%;
+  -webkit-border-radius: 50%;
+}
+#hinh_tron_vang {
+  width: 100px;
+  height: 100px;
+  background-color: yellow;
+  border-radius: 50%;
+  -moz-border-radius:50%;
+  -webkit-border-radius: 50%;
+}
+#hinh_tron_xanh {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  border-radius: 50%;
+  -moz-border-radius:50%;
+  -webkit-border-radius: 50%;
+}
+#hinh_tron_xanh_la {
+  width: 100px;
+  height: 100px;
+  background-color: green;
+  border-radius: 50%;
+  -moz-border-radius:50%;
+  -webkit-border-radius: 50%;
+}
+#hinh_tron_cam {
+  width: 100px;
+  height: 100px;
+  background-color: orangered;
+  border-radius: 50%;
+  -moz-border-radius:50%;
+  -webkit-border-radius: 50%;
+}
+#hinh_tron_aqua {
+  width: 100px;
+  height: 100px;
+  background-color: aqua;
+  border-radius: 50%;
+  -moz-border-radius:50%;
+  -webkit-border-radius: 50%;
+}
+

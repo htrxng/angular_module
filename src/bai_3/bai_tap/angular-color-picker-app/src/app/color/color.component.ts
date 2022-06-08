@@ -6,12 +6,14 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./color.component.css']
 })
 export class ColorComponent implements OnInit {
-  text = {content: 'hello c12!', color: 'red'};
+  color: string;
 
   constructor() {
   }
 
   ngOnInit(): void {
   }
-
+  changeColor(color: string) {
+    this.color = color;
+  }
 }
