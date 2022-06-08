@@ -1,20 +1,23 @@
 let sum: number = 0;
-let count: number = 0;
-let preFibonacci1 = 0;
-let preFibonacci2 = 0;
-for (let i = 1;count < 20; i++) {
-    if(i == 1 && count == 0) {
-        preFibonacci2 = i;
-        console.log(i);
-        i--;
-        sum += i ;
-        count ++;
-    } else if(i == (preFibonacci1+ preFibonacci2)){
-         sum += i;
-         preFibonacci1 = preFibonacci2;
-         preFibonacci2 = i;
-         count ++;
-         console.log(i);
+
+// let n = parseInt(prompt("nhập thứ tự fibonacci trong dãy để tìm số fibonacci tương ứng: "));
+ let n: number = 15;
+
+function fibonacci( n : number) : number {
+    if (n <= 1) {
+        return n;
     }
+    return fibonacci(n-1) + fibonacci(n-2);
 }
-console.log(sum);
+
+let fibonacciArr : number[] = [];
+
+for (let i= 0;i<n;i++) {
+    fibonacciArr.push(fibonacci(i));
+}
+for (let i=0; i< fibonacciArr.length;i++) {
+    sum += fibonacciArr[i];
+    console.log("số fibonaci thứ " + (i+1) + " :" + fibonacciArr[i]);
+}
+    console.log("tổng " + n + " số fibonacci đầu tiên là : " + sum );
+
