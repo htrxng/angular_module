@@ -1,0 +1,13 @@
+
+<input type="number" placeholder="enter number" (keyup)="getFirstNum($event);">
+
+<button (click)="getOperator($event)" value="+">+</button>
+<button (click)="getOperator($event)" value="-">-</button>
+<button (click)="getOperator($event)" value="x">x</button>
+<button (click)="getOperator($event)" value="/">/</button>
+
+<input type="number" placeholder="enter number" (keyup)="getSecondNum($event);">
+
+<button (click)="calculate()"> = </button>
+<hr>
+<h1>{{num1}} {{operate}} {{num2}} = {{result}}  </h1>
