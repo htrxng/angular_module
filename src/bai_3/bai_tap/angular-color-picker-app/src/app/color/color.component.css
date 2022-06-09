@@ -46,4 +46,28 @@
   -moz-border-radius:50%;
   -webkit-border-radius: 50%;
 }
+#hinh_tron_den {
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  border-radius: 50%;
+  -moz-border-radius:50%;
+  -webkit-border-radius: 50%;
+}
+#hinh_tron_trang {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border-radius: 50%;
+  -moz-border-radius:50%;
+  -webkit-border-radius: 50%;
+}
+#hinh_tron_xam {
+  width: 100px;
+  height: 100px;
+  background-color: grey;
+  border-radius: 50%;
+  -moz-border-radius:50%;
+  -webkit-border-radius: 50%;
+}
 
