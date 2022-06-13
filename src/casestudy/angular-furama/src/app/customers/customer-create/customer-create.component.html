@@ -1,56 +1,86 @@
-<fieldset class="w-75 mx-auto">
-  <legend class="text-center my-4"><span class="text-secondary">ADD CUSTOMER</span></legend>
-  <div class="form-outline w-25 mx-auto my-4">
-    <input class="form-control" id="customerCode" type="text"/>
-    <label class="form-label" for="customerCode">Customer Code</label>
-  </div>
-  <div class="form-outline w-25 mx-auto my-4">
-    <input class="form-control" id="customerName" type="text"/>
-    <label class="form-label" for="customerName">CustomerName</label>
-  </div>
-  <div class="form-outline w-25 mx-auto my-4">
-    <input class="form-control" id="customerDateOfBirth" type="text"/>
-    <label class="form-label" for="customerDateOfBirth">Birth Date</label>
-  </div>
-  <div class="form-outline w-25 mx-auto my-4">
-    <input class="form-control" id="customerIdCard" type="text"/>
-    <label class="form-label" for="customerIdCard">Capacity</label>
-  </div>
-  <div class="form-outline w-25 mx-auto my-4">
-    <input class="form-control" id="customerPhone" type="text"/>
-    <label class="form-label" for="customerPhone">Standard</label>
-  </div>
-  <div class="form-outline w-25 mx-auto my-4">
-    <input class="form-control" id="customerEmail" type="text"/>
-    <label class="form-label" for="customerEmail">Other Convenience</label>
-  </div>
-  <div class="form-outline w-25 mx-auto my-4" id="input-pool">
-    <input class="form-control" id="customerAddress" type="text"/>
-    <label class="form-label" for="customerAddress">Pool Area</label>
-  </div>
-  <div class="form-group row">
-    <label for="customerType" class="col-sm-3 col-form-label">Customer Type</label>
-    <div class="col-sm-9">
-      <select id="customerType" class="form-control">
-        <option value="null">Select Customer type</option>
-        <option value="1">Platinum</option>
-        <option value="2">Silver</option>
-        <option value="3">Gold</option>
-        <option value="4">Member</option>
-      </select>
+<form [formGroup]="addCustomerForm" (ngSubmit)="createCustomer()">
+  <fieldset class="w-75 mx-auto">
+    <legend class="text-center my-4"><span class="text-secondary">ADD CUSTOMER</span></legend>
+    <div class="form-outline w-25 mx-auto my-4">
+      <input class="form-control" id="customerCode" type="text" formControlName="code"/>
+      <label class="form-label" for="customerCode">Customer Code</label>
+      <p style="color: red" *ngIf="addCustomerForm.controls.code.hasError('required')
+      && addCustomerForm.controls.code.touched ">this information cannot be left blank</p>
+      <p style="color: red" *ngIf="addCustomerForm.controls.code.hasError('pattern')
+      && addCustomerForm.controls.code.touched ">INVALID.(format: KH-XXXX)</p>
     </div>
+    <div class="form-outline w-25 mx-auto my-4">
+      <input class="form-control" id="customerName" type="text" formControlName="name"/>
+      <label class="form-label" for="customerName">CustomerName</label>
+      <p style="color: red" *ngIf="addCustomerForm.controls.name.hasError('required')
+      && addCustomerForm.controls.name.touched ">this information cannot be left blank</p>
+    </div>
+    <div class="form-outline w-25 mx-auto my-4">
+      <input class="form-control" id="customerDateOfBirth" type="date" formControlName="birthday"/>
+      <label class="form-label" for="customerDateOfBirth">Birth Date</label>
+    </div>
+    <div class="form-outline w-25 mx-auto my-4">
+      <input class="form-control" id="customerIdCard" type="text" formControlName="idCard"/>
+      <label class="form-label" for="customerIdCard">Id Card</label>
+      <p style="color: red" *ngIf="addCustomerForm.controls.idCard.hasError('required')
+      && addCustomerForm.controls.idCard.touched ">
+        this information cannot be left blank</p>
+      <p style="color: red" *ngIf="addCustomerForm.controls.idCard.hasError('pattern')
+      && addCustomerForm.controls.idCard.touched ">INVALID.(format: 9 or 12 numbers.)</p>
+
+    </div>
+    <div class="form-outline w-25 mx-auto my-4">
+      <input class="form-control" id="customerPhone" type="text" formControlName="phone"/>
+      <label class="form-label" for="customerPhone">phone</label>
+      <p style="color: red" *ngIf="addCustomerForm.controls.phone.hasError('required')
+      && addCustomerForm.controls.phone.touched ">
+        this information cannot be left blank</p>
+      <p style="color: red" *ngIf="addCustomerForm.controls.phone.hasError('pattern') &&
+      addCustomerForm.controls.phone.touched ">INVALID.(format:
+        [090xxxxxxx||091xxxxxxx||091xxxxxxx||(84)+91xxxxxxx])</p>
+    </div>
+    <div class="form-outline w-25 mx-auto my-4">
+      <input class="form-control" id="customerEmail" type="text" formControlName="email"/>
+      <label class="form-label" for="customerEmail">email</label>
+      <p style="color: red" *ngIf="addCustomerForm.controls.email.hasError('required')
+      && addCustomerForm.controls.email.touched ">
+        this information cannot be left blank</p>
+      <p style="color: red" *ngIf="addCustomerForm.controls.email.hasError('email')
+      && addCustomerForm.controls.email.touched ">INVALID.(format: [username@abc.xyz])</p>
+
+    </div>
+    <div class="form-outline w-25 mx-auto my-4" id="input-pool">
+      <input class="form-control" id="customerAddress" type="text" formControlName="address"/>
+      <label class="form-label" for="customerAddress">address</label>
+    </div>
+
+    <div class="form-outline w-25 mx-auto my-4">
+      <label class="form-label" for="gender">Gender</label>
+      <select class="form-select" id="gender" formControlName="gender" name="Gender">
+        <option value="-1">Gender</option>
+        <option value="1">Male</option>
+        <option value="0">Female</option>
+      </select>
+      <p style="color: red" *ngIf="addCustomerForm.controls.gender.hasError('required')
+      && addCustomerForm.controls.gender.touched ">
+        this information cannot be left blank</p>
+    </div>
+    <div class="form-outline w-25 mx-auto my-4">
+      <label class="form-label col-sm-3" for="customerType">Customer Type</label>
+      <div class="col-sm-9">
+        <select id="customerType" formControlName="customerType">
+          <option value="">Customer Type</option>
+          <option *ngFor="let customerType of customerTypes">
+            {{customerType.customerType}}
+          </option>
+        </select>
+      </div>
+    </div>
+  </fieldset>
+  <div class="text-center">
+    <button type="submit" class="btn btn-secondary mt-4 mx-2">ADD</button>
+    <a [routerLink]="['/customerList']">
+      <button type="button" class="btn btn-primary mt-4 mx-2">Cancel</button>
+    </a>
   </div>
-  <div class="form-outline w-25 mx-auto my-4">
-    <select  class="form-select" aria-label="Disabled select example">
-      <option value="-1" >Gender</option>
-      <option value="1">Male</option>
-      <option value="0">Female</option>
-    </select>
-  </div>
-</fieldset>
-<div class="text-center">
-  <button type="submit" class="btn btn-secondary mt-4 mx-2">ADD</button>
-  <a href="/customer/list">
-    <button type="button" class="btn btn-warning mt-4 mx-2">Cancel</button>
-  </a>
-</div>
+</form>
