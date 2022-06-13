@@ -1,0 +1,15 @@
+<form [formGroup]="userForm">
+  <label> email</label>
+  <input type="text" formControlName="email"> <br>
+  <p style="color: red" *ngIf="userForm.controls.email.hasError('required') && userForm.controls.email.touched ">ko được
+    để trống</p>
+  <p style="color: red" *ngIf="userForm.controls.email.hasError('email') && userForm.controls.email.touched ">ko dung
+    dinh dang</p>
+  <label> password</label>
+  <input type="password" formControlName="password"> <br>
+  <p style="color: red" *ngIf="userForm.controls.password.hasError('required') && userForm.controls.password.touched ">
+    ko được để trống</p>
+  <p style="color: red" *ngIf="userForm.controls.password.hasError('minlength') && userForm.controls.password.touched ">
+    phai
+    co do dai lon hon 6.</p>
+</form>

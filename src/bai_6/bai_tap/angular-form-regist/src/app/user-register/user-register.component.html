@@ -1,0 +1,35 @@
+<form [formGroup]="userForm" (ngSubmit)="createUser()">
+  <label > user name</label>
+  <input type="text" formControlName="username" name="username"> <br>
+  <p style="color: red" *ngIf="userForm.controls.username.hasError('required') && userForm.controls.username.touched ">ko được để trống</p>
+  <label> email</label>
+  <input type="text" formControlName="email" name="email"> <br>
+  <p style="color: red" *ngIf="userForm.controls.email.hasError('required') && userForm.controls.username.touched ">email ko được để trống</p>
+  <p style="color: red" *ngIf="userForm.controls.email.hasError('email') && userForm.controls.username.touched ">email không hợp lệ</p>
+  <label > password</label>
+  <input type="password" formControlName="password" name="password"> <br>
+  <p style="color: red" *ngIf="userForm.controls.password.hasError('required') && userForm.controls.username.touched ">ko được để trống</p>
+  <label > confirm password</label>
+  <p style="color: red" *ngIf="userForm.controls.confirmPassword.hasError('passValid') && userForm.controls.username.touched ">passConfirm chua giong</p>
+  <input type="password" formControlName="confirmPassword" name="confirmPassword"> <br>
+  <p style="color: red" *ngIf="userForm.controls.confirmPassword.hasError('required') && userForm.controls.username.touched ">ko được để trống</p>
+  <p style="color: red" *ngIf="userForm.controls.confirmPassword.hasError('passValid') && userForm.controls.username.touched ">passConfirm chua giong</p>
+  <label > age</label>
+  <input type="number" formControlName="age" name="age"> <br>
+  <p style="color: red" *ngIf="userForm.controls.age.hasError('min') && userForm.controls.username.touched ">Tuổi phải lớn hơn 18</p>
+  <p style="color: red" *ngIf="userForm.controls.age.hasError('required') && userForm.controls.username.touched "> ko được để trống</p>
+  <label > country</label>
+  <input type="text" formControlName="country" name="country"> <br>
+  <p style="color: red" *ngIf="userForm.controls.country.hasError('required') && userForm.controls.username.touched ">ko được để trống</p>
+  <label> Gender</label>
+  <label> Male</label>
+  <input type="radio" formControlName="gender" value="1">
+  <label> Female</label>
+  <input type="radio" formControlName="gender" value="0">
+  <p style="color: red" *ngIf="userForm.controls.gender.hasError('required') && userForm.controls.username.touched ">gender ko được để trống</p>
+  <label > phone</label>
+  <input type="text" formControlName="phone" name="phone"> <br>
+  <p style="color: red" *ngIf="userForm.controls.phone.hasError('required') && userForm.controls.username.touched ">phone ko được để trống</p>
+  <p style="color: red" *ngIf="userForm.controls.phone.hasError('pattern') && userForm.controls.username.touched ">phone ko hop le</p>
+  <button type="submit">Registry</button>
+</form>
