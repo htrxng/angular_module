@@ -1,0 +1,20 @@
+<h1>Word List</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Word</th>
+    <th>Meaning</th>
+    <th>More</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let word of dictionary;index as i">
+    <td>{{i + 1}}</td>
+    <td>{{word.word}}</td>
+    <td>{{word.meaning}}</td>
+    <td><a [routerLink]="['detail-word',word.word]">Details</a></td>
+  </tr>
+  </tbody>
+</table>

@@ -71,7 +71,7 @@
       <div class="col-sm-9">
         <select id="customerType" formControlName="customerType">
           <option value="">Customer Type</option>
-          <option *ngFor="let customerType of customerTypes">
+          <option *ngFor="let customerType of customerTypes" [ngValue]="customerType">
             {{customerType.customerType}}
           </option>
         </select>

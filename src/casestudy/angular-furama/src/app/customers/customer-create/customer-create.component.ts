@@ -25,6 +25,7 @@ export class CustomerCreateComponent implements OnInit {
       phone: new FormControl('', [Validators.required, Validators.pattern(/^((\(84\)\+(90))|(\(84\)\+(91))|(090)|(091))\d{7}$/)]),
       gender: new FormControl(-1, [Validators.required]),
       address: new FormControl('', [Validators.required]),
+      customerType: new FormControl('', [Validators.required]),
     });
   }
 
@@ -34,7 +35,6 @@ export class CustomerCreateComponent implements OnInit {
   createCustomer() {
     console.log(this.addCustomerForm);
     if (this.addCustomerForm.valid) {
-      this.submitCreate.emit(this.addCustomerForm.value);
       this.customerService.create(this.addCustomerForm.value);
     }
   }
