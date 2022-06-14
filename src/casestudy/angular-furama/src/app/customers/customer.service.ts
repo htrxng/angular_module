@@ -66,6 +66,8 @@ export class CustomerService {
     this.customerList.push(customer);
   }
 
+  update() {}
+
   deleteCustomer($event: number) {
     this.customerList = this.customerList.filter(customer => $event !== customer.id);
   }

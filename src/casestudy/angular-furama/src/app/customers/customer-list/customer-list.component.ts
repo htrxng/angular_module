@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {customerList} from '../../data/customerList';
-import {CustomerService} from '../../service/customer.service';
+import {CustomerService} from '../customer.service';
 import {CustomerDeleteModalComponent} from '../../modal/customer-delete-modal/customer-delete-modal.component';
 import {Customer} from '../../model/Customer';
 

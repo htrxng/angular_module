@@ -13,7 +13,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     AppComponent,
     ProductListComponent,
     ProductCreateComponent,
-    ProductEditComponent
+    ProductEditComponent,
   ],
     imports: [
         BrowserModule,
