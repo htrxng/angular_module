@@ -1,0 +1,11 @@
+<form [formGroup]="productForm" (ngSubmit)="updateProduct(id)">
+  <span>Mã sản phẩm</span>
+  <input type="number" formControlName="id"/>
+  <span>Tên sản phẩm</span>
+  <input type="text" formControlName="name">
+  <span>Giá sản phẩm</span>
+  <input type="number" formControlName="price">
+  <span>Mô tả</span>
+  <input type="text" formControlName="description">
+  <button >Cập nhật</button>
+</form>
