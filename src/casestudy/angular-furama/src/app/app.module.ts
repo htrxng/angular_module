@@ -14,6 +14,7 @@ import { ContractListComponent } from './contracts/contract-list/contract-list.c
 import { ContractCreateComponent } from './contracts/contract-create/contract-create.component';
 import { FacilitieEditComponent } from './facilities/facilitie-edit/facilitie-edit.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { CustomerDeleteModalComponent } from './modal/customer-delete-modal/customer-delete-modal.component';
 
 @NgModule({
   declarations: [
@@ -25,9 +26,10 @@ import {ReactiveFormsModule} from '@angular/forms';
     CustomerEditComponent,
     FacilitiesListComponent,
     FacilitiesCreateComponent,
+    FacilitieEditComponent,
     ContractListComponent,
     ContractCreateComponent,
-    FacilitieEditComponent,
+    CustomerDeleteModalComponent,
   ],
     imports: [
         BrowserModule,

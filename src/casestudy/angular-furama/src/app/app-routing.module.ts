@@ -18,9 +18,9 @@ const routes: Routes = [
   {path: 'facilityList', component: FacilitiesListComponent},
   {path: 'facilityEdit', component: FacilitieEditComponent},
   {path: 'facilityCreate', component: FacilitiesCreateComponent},
-  {path: 'customerList', component: CustomerListComponent},
   {path: 'contractList', component: ContractListComponent},
   {path: 'contractCreate', component: ContractCreateComponent},
+  {path: 'customerList', component: CustomerListComponent},
   {path: 'customerEdit', component: CustomerEditComponent},
   {path: 'customerCreate', component: CustomerCreateComponent},
 ];

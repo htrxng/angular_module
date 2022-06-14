@@ -9,6 +9,7 @@ import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/form
 export class UserRegisterComponent implements OnInit {
   @Output() submitCreate = new EventEmitter();
   userForm: FormGroup;
+  private passValid: boolean;
 
   constructor() {
     this.userForm = new FormGroup({
@@ -26,14 +27,12 @@ export class UserRegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+
   validatePassword(obj: AbstractControl) {
     const password = obj.get('password').value;
     const confirmPassword = obj.get('confirmPassword').value;
-    if (password !== confirmPassword) {
-      return {passValid: true};
-    } else {
-      return null;
-    }
+    return password !== confirmPassword ? {passValid: true} : null;
   }
 
   createUser() {

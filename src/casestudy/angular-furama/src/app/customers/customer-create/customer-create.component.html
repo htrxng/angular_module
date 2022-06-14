@@ -18,6 +18,8 @@
     <div class="form-outline w-25 mx-auto my-4">
       <input class="form-control" id="customerDateOfBirth" type="date" formControlName="birthday"/>
       <label class="form-label" for="customerDateOfBirth">Birth Date</label>
+      <p style="color: red" *ngIf="addCustomerForm.controls.birthday.hasError('required')
+      && addCustomerForm.controls.birthday.touched ">this information cannot be left blank</p>
     </div>
     <div class="form-outline w-25 mx-auto my-4">
       <input class="form-control" id="customerIdCard" type="text" formControlName="idCard"/>
@@ -27,7 +29,6 @@
         this information cannot be left blank</p>
       <p style="color: red" *ngIf="addCustomerForm.controls.idCard.hasError('pattern')
       && addCustomerForm.controls.idCard.touched ">INVALID.(format: 9 or 12 numbers.)</p>
-
     </div>
     <div class="form-outline w-25 mx-auto my-4">
       <input class="form-control" id="customerPhone" type="text" formControlName="phone"/>
@@ -47,13 +48,13 @@
         this information cannot be left blank</p>
       <p style="color: red" *ngIf="addCustomerForm.controls.email.hasError('email')
       && addCustomerForm.controls.email.touched ">INVALID.(format: [username@abc.xyz])</p>
-
     </div>
     <div class="form-outline w-25 mx-auto my-4" id="input-pool">
       <input class="form-control" id="customerAddress" type="text" formControlName="address"/>
       <label class="form-label" for="customerAddress">address</label>
+      <p style="color: red" *ngIf="addCustomerForm.controls.address.hasError('required')
+      && addCustomerForm.controls.address.touched ">
     </div>
-
     <div class="form-outline w-25 mx-auto my-4">
       <label class="form-label" for="gender">Gender</label>
       <select class="form-select" id="gender" formControlName="gender" name="Gender">

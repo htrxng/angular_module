@@ -1,0 +1,26 @@
+<script src="customer-delete-modal.component.spec.ts"></script>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete Customer</h5>
+        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form method="post" action="@{/customer/delete}">
+        <div class="modal-body">
+          <input type="hidden" name="id" id="get-id">
+          <h1 style="color: #996969" id="get-name">
+            Name Customer:
+          </h1>
+          <hr>
+          <p>Are You Sure ???</p>
+          <p style="color: red">this action cant not revert</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-danger">Delete It !</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
