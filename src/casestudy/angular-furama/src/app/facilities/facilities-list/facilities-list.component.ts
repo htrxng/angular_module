@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {facilityList} from '../../data/facilityList';
+import {Component, OnInit} from '@angular/core';
 import {Facility} from '../../model/Facility';
 import {FacilityService} from '../facility.service';
 
