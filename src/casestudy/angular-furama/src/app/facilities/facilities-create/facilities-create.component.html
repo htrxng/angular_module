@@ -1,54 +1,57 @@
-<form [formGroup]="addFacilityForm" (ngSubmit)="createFacility()">
+<div class="col-8 mx-auto">
+  <div class="mx-auto shadow-lg p-3 mb-5 bg-white rounded-lg">
+    <form [formGroup]="addFacilityForm" (ngSubmit)="createFacility()">
   <fieldset class="w-75 mx-auto">
     <legend class="text-center my-4"><span class="text-secondary">ADD SERVICE</span></legend>
-    <div class="form-outline w-25 mx-auto my-4">
+    <div class="form-group row">
+      <div class="col-sm-9">
       <input class="form-control" id="facilityCode" type="text" formControlName="code"/>
       <label class="form-label" for="facilityCode">Service Code</label>
       <p style="color: red" *ngIf="addFacilityForm.controls.code.hasError('required')
       && addFacilityForm.controls.code.touched ">this information cannot be left blank</p>
     </div>
-    <div class="form-outline w-25 mx-auto my-4">
+      <div class="col-sm-9">
       <input class="form-control" id="name" type="text" formControlName="name"/>
       <label class="form-label" for="name">Service Name</label>
       <p style="color: red" *ngIf="addFacilityForm.controls.name.hasError('required')
       && addFacilityForm.controls.name.touched ">this information cannot be left blank</p></div>
-    <div class="form-outline w-25 mx-auto my-4">
+      <div class="col-sm-9">
       <input class="form-control" id="serviceArea" type="text" formControlName="area"/>
       <label class="form-label" for="serviceArea">Area</label>
       <p style="color: red" *ngIf="addFacilityForm.controls.area.hasError('required')
       && addFacilityForm.controls.area.touched ">this information cannot be left blank</p></div>
-    <div class="form-outline w-25 mx-auto my-4">
+      <div class="col-sm-9">
       <input class="form-control" id="serviceCost" type="text" formControlName="cost"/>
       <label class="form-label" for="serviceCost">Cost</label>
       <p style="color: red" *ngIf="addFacilityForm.controls.cost.hasError('required')
       && addFacilityForm.controls.cost.touched ">this information cannot be left blank</p></div>
-    <div class="form-outline w-25 mx-auto my-4">
+      <div class="col-sm-9">
       <input class="form-control" id="serviceMaxPeople" type="text" formControlName="maximumPeople"/>
       <label class="form-label" for="serviceMaxPeople">Capacity</label>
       <p style="color: red" *ngIf="addFacilityForm.controls.maximumPeople.hasError('required')
       && addFacilityForm.controls.maximumPeople.touched ">this information cannot be left blank</p></div>
-    <div class="form-outline w-25 mx-auto my-4">
+      <div class="col-sm-9">
       <input class="form-control" id="standardRoom" type="text" formControlName="roomStandard"/>
       <label class="form-label" for="standardRoom">Standard</label>
       <p style="color: red" *ngIf="addFacilityForm.controls.roomStandard.hasError('required')
       && addFacilityForm.controls.roomStandard.touched ">this information cannot be left blank</p></div>
-    <div class="form-outline w-25 mx-auto my-4">
+      <div class="col-sm-9">
       <input class="form-control" id="descriptionOtherConvenience" type="text" formControlName="description"/>
       <label class="form-label" for="descriptionOtherConvenience">Other Convenience</label>
       <p style="color: red" *ngIf="addFacilityForm.controls.description.hasError('required')
       && addFacilityForm.controls.description.touched ">this information cannot be left blank</p></div>
-    <div class="form-outline w-25 mx-auto my-4" id="input-pool">
+      <div class="col-sm-9">
       <input class="form-control" id="pool" type="text" formControlName="poolSquare"/>
       <label class="form-label" for="pool">Pool Area</label>
       <p style="color: red" *ngIf="addFacilityForm.controls.poolSquare.hasError('required')
       && addFacilityForm.controls.poolSquare.touched ">this information cannot be left blank</p></div>
-    <div class="form-outline w-25 mx-auto my-4" id="input-floors">
+      <div class="col-sm-9">
       <input class="form-control" id="numberOfFloors" type="text" formControlName="numberFloor"/>
       <label class="form-label" for="numberOfFloors">Number Of Floors</label>
       <p style="color: red" *ngIf="addFacilityForm.controls.numberFloor.hasError('required')
       && addFacilityForm.controls.numberFloor.touched ">this information cannot be left blank</p></div>
-    <div class="form-group row">
-      <label for="facilityTypeId" class="col-sm-3 col-form-label">Service type</label>
+      <div class="form-group row">
+      <label for="facilityTypeId"  >Service type</label>
       <div class="col-sm-9">
         <select id="facilityTypeId"
                 class="form-control"
@@ -62,7 +65,7 @@
       <p style="color: red" *ngIf="addFacilityForm.controls.facilityType.hasError('required')
       && addFacilityForm.controls.facilityType.touched ">this information cannot be left blank</p></div>
     <div class="form-group row">
-      <label for="rentTypeId" class="col-sm-3 col-form-label">Rent type</label>
+      <label for="rentTypeId">Rent type</label>
       <div class="col-sm-9">
         <select id="rentTypeId"
                 class="form-control"
@@ -75,6 +78,7 @@
       </div>
       <p style="color: red" *ngIf="addFacilityForm.controls.rentType.hasError('required')
       && addFacilityForm.controls.rentType.touched ">this information cannot be left blank</p></div>
+    </div>
   </fieldset>
   <div class="text-center">
     <button type="submit" class="btn btn-secondary mt-4 mx-2">ADD</button>
@@ -83,3 +87,5 @@
     </a>
   </div>
 </form>
+  </div>
+  </div>

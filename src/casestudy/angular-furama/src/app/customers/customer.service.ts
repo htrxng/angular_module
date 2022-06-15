@@ -1,19 +1,18 @@
 import {Injectable} from '@angular/core';
-import {customerList} from '../data/customerList';
 import {Customer} from '../model/Customer';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
-  private customerList: Customer[] = [
+  private customers: Customer[] = [
     {
       id: 1,
       code: 'KH-0001',
       name: 'Huu Trung',
-      birthday: '2002-18-08',
+      birthday: '2002-01-08',
       idCard: '191923459',
-      phone: '0345059222',
+      phone: '0904333333',
       email: 'huutrungg02@gmail.com',
       address: 'Hue',
       customerType: {
@@ -26,9 +25,9 @@ export class CustomerService {
       id: 2,
       code: 'KH-0002',
       name: 'Grace',
-      birthday: '1995-18-01',
+      birthday: '1995-01-01',
       idCard: '123123123',
-      phone: '051141411',
+      phone: '0904333333',
       email: 'grace.ray@gmail.com',
       address: 'London',
       customerType: {
@@ -43,7 +42,7 @@ export class CustomerService {
       name: 'Kate Hunington',
       birthday: '1992-12-08',
       idCard: '12314594111',
-      phone: '068688554',
+      phone: '0904333333',
       email: 'kate.hunington@gmail.com',
       address: 'New York',
       customerType: {
@@ -58,17 +57,31 @@ export class CustomerService {
   }
 
   getList() {
-    return this.customerList;
+    return this.customers;
   }
 
   create(customer: Customer) {
-    customer.id = this.customerList.length + 1;
-    this.customerList.push(customer);
+    customer.id = this.customers.length + 1;
+    this.customers.push(customer);
   }
 
-  update() {}
+  update(customer: Customer) {
+    for (let i = 0; i < this.customers.length; i++) {
+      if (this.customers[i].id === customer.id) {
+        this.customers[i] = customer;
+      }
+    }
+  }
 
   deleteCustomer($event: number) {
-    this.customerList = this.customerList.filter(customer => $event !== customer.id);
+    this.customers = this.customers.filter(customer => $event !== customer.id);
+  }
+
+  findById(id: number) {
+    for (let i = 0; i < this.customers.length; i++) {
+      if (this.customers[i].id === id) {
+        return this.customers[i];
+      }
+    }
   }
 }

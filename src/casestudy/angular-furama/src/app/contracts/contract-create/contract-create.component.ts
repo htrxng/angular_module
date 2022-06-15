@@ -5,6 +5,8 @@ import {FacilityService} from '../../facilities/facility.service';
 import {Facility} from '../../model/Facility';
 import {facilityList} from '../../data/facilityList';
 import {customerList} from '../../data/customerList';
+import {Customer} from '../../model/Customer';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-contract-create',
@@ -15,9 +17,10 @@ export class ContractCreateComponent implements OnInit {
   @Output() submitCreate = new EventEmitter();
   addContractForm: FormGroup;
   facilities = facilityList;
-  customers = customerList;
+  customers: Customer[];
 
-  constructor(private contractService: ContractService) {
+  constructor(private route: Router, private contractService: ContractService) {
+    this.customers = customerList;
     this.addContractForm = new FormGroup({
       startDate: new FormControl('', [Validators.required]),
       endDate: new FormControl('', [Validators.required]),
@@ -33,8 +36,9 @@ export class ContractCreateComponent implements OnInit {
 
   createContract() {
     console.log(this.addContractForm);
-    if(this.addContractForm.valid) {
+    if (this.addContractForm.valid) {
       this.contractService.create(this.addContractForm.value);
+      this.route.navigateByUrl('/contractList');
     }
   }
 }

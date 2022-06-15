@@ -1,0 +1,24 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "phone"
+    },
+    {
+      "id": 2,
+      "name": "tv"
+    },
+    {
+      "id": 3,
+      "name": "book"
+    },
+    {
+      "id": 4,
+      "name": "drink"
+    },
+    {
+      "name": "laptop",
+      "id": 5
+    }
+  ]
+}

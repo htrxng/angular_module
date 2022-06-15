@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {customerTypeList} from '../../data/customerTypeList';
 import {customerList} from '../../data/customerList';
 import {CustomerService} from '../customer.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-customer-create',
@@ -10,12 +11,13 @@ import {CustomerService} from '../customer.service';
   styleUrls: ['./customer-create.component.css']
 })
 export class CustomerCreateComponent implements OnInit {
-  @Output() submitCreate = new EventEmitter();
+  submitted = false;
+  // @Output() submitCreate = new EventEmitter();
   addCustomerForm: FormGroup;
   customerTypes = customerTypeList;
   customers = customerList;
 
-  constructor(private customerService: CustomerService) {
+  constructor(private route: Router, private customerService: CustomerService) {
     this.addCustomerForm = new FormGroup({
       code: new FormControl('', [Validators.required, Validators.pattern(/^KH-\d{4}$/)]),
       name: new FormControl('', [Validators.required]),
@@ -33,9 +35,12 @@ export class CustomerCreateComponent implements OnInit {
   }
 
   createCustomer() {
+    this.submitted = true;
     console.log(this.addCustomerForm);
     if (this.addCustomerForm.valid) {
       this.customerService.create(this.addCustomerForm.value);
+      this.route.navigateByUrl('/customer/list');
+      this.submitted = false;
     }
   }
 }

@@ -22,6 +22,8 @@ export class FacilitiesCreateComponent implements OnInit {
   constructor(private facilityService: FacilityService,
               private facilityTypeService: FacilityTypeService,
               private rentTypeService: RentTypeService) {
+    this.facilityTypes = facilityTypeService.getAll();
+    this.rentTypes = rentTypeService.getAll();
     this.addFacilityForm = new FormGroup({
       code: new FormControl(''),
       image: new FormControl('', [Validators.required]),
