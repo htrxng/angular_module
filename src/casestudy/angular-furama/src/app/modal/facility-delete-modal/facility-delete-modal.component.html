@@ -3,13 +3,13 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Delete Customer: {{customerId}}</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Delete Facility: {{facilityId}}</h5>
         <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <input type="hidden" name="id" id="get-id">
         <h1 style="color: #996969" id="get-name">
-          Name Customer:{{customerName}}
+          Name Customer:{{facilityName}}
         </h1>
         <hr>
         <p>Are You Sure ???</p>
@@ -17,7 +17,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
-        <button type="submit" (click)="deleteCustomer()" class="btn btn-danger" data-mdb-dismiss="modal">Delete It !
+        <button type="submit" (click)="deleteFacility()" class="btn btn-danger" data-mdb-dismiss="modal">Delete It !
         </button>
       </div>
     </div>

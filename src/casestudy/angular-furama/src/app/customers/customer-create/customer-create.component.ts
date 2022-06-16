@@ -12,7 +12,6 @@ import {Router} from '@angular/router';
 })
 export class CustomerCreateComponent implements OnInit {
   submitted = false;
-  // @Output() submitCreate = new EventEmitter();
   addCustomerForm: FormGroup;
   customerTypes = customerTypeList;
   customers = customerList;

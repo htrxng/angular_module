@@ -8,11 +8,24 @@ import {FacilityService} from '../facility.service';
   styleUrls: ['./facilities-list.component.css']
 })
 export class FacilitiesListComponent implements OnInit {
+  facilityName: string;
+  facilityId: number;
   facilityList: Facility[] = [];
-  constructor(private facilityService: FacilityService) {}
+
+  constructor(private facilityService: FacilityService) {
+  }
 
   ngOnInit(): void {
     this.facilityList = this.facilityService.getList();
   }
 
+  sendDataToDelete(id: number, name: string) {
+    this.facilityName = name;
+    this.facilityId = id;
+  }
+
+  deleteFacility($event: number) {
+    this.facilityService.deleteFacility($event);
+    this.ngOnInit();
+  }
 }

@@ -1,94 +1,95 @@
 <div class="col-8 mx-auto">
   <div class="mx-auto shadow-lg p-3 mb-5 bg-white rounded-lg">
-<form [formGroup]="editCustomerForm" (ngSubmit)="editCustomer()">
-  <fieldset class="w-75 mx-auto">
-    <legend class="text-center my-4"><span class="text-secondary">UPDATE CUSTOMER</span></legend>
-    <div class="form-group row">
-    <input type="hidden" formControlName="id">
-      <div class="col-sm-9">
-      <label for="customerCode">Customer Code</label>
-      <input class="form-control" id="customerCode" type="text" formControlName="code"/>
-      <p style="color: red" *ngIf="editCustomerForm.controls.code.hasError('required')
+    <form [formGroup]="editCustomerForm" (ngSubmit)="editCustomer()">
+      <fieldset class="w-75 mx-auto">
+        <legend class="text-center my-4"><span class="text-secondary">UPDATE CUSTOMER</span></legend>
+        <div class="form-group row">
+          <input type="hidden" formControlName="id">
+          <div class="col-sm-9">
+            <label for="customerCode">Code</label>
+            <input class="form-control" id="customerCode" type="text" formControlName="code"/>
+            <p style="color: red" *ngIf="editCustomerForm.controls.code.hasError('required')
       && editCustomerForm.controls.code.touched ">this information cannot be left blank</p>
-      <p style="color: red" *ngIf="editCustomerForm.controls.code.hasError('pattern')
+            <p style="color: red" *ngIf="editCustomerForm.controls.code.hasError('pattern')
       && editCustomerForm.controls.code.touched ">INVALID.(format: KH-XXXX)</p>
-    </div>
-      <div class="col-sm-9">
-      <label for="customerName">CustomerName</label>
-      <input class="form-control" id="customerName" type="text" formControlName="name"/>
-      <p style="color: red" *ngIf="editCustomerForm.controls.name.hasError('required')
+          </div>
+          <div class="col-sm-9">
+            <label for="customerName">Name</label>
+            <input class="form-control" id="customerName" type="text" formControlName="name"/>
+            <p style="color: red" *ngIf="editCustomerForm.controls.name.hasError('required')
       && editCustomerForm.controls.name.touched ">this information cannot be left blank</p>
-    </div>
-    <<div class="col-sm-9">
-      <label for="customerDateOfBirth">Birth Date</label>
-      <input class="form-control" id="customerDateOfBirth" type="date" formControlName="birthday"/>
-      <p style="color: red" *ngIf="editCustomerForm.controls.birthday.hasError('required')
+          </div>
+          <div class="col-sm-9">
+            <label for="customerDateOfBirth">Birthday</label>
+            <input class="form-control" id="customerDateOfBirth" type="date" formControlName="birthday"/>
+            <p style="color: red" *ngIf="editCustomerForm.controls.birthday.hasError('required')
       && editCustomerForm.controls.birthday.touched ">this information cannot be left blank</p>
-    </div>
-      <div class="col-sm-9">
-      <label for="customerIdCard">Id Card</label>
-      <input class="form-control" id="customerIdCard" type="text" formControlName="idCard"/>
-      <p style="color: red" *ngIf="editCustomerForm.controls.idCard.hasError('required')
+          </div>
+          <div class="col-sm-9">
+            <label for="customerIdCard">ID Card</label>
+            <input class="form-control" id="customerIdCard" type="text" formControlName="idCard"/>
+            <p style="color: red" *ngIf="editCustomerForm.controls.idCard.hasError('required')
       && editCustomerForm.controls.idCard.touched ">
-        this information cannot be left blank</p>
-      <p style="color: red" *ngIf="editCustomerForm.controls.idCard.hasError('pattern')
+              this information cannot be left blank</p>
+            <p style="color: red" *ngIf="editCustomerForm.controls.idCard.hasError('pattern')
       && editCustomerForm.controls.idCard.touched ">INVALID.(format: 9 or 12 numbers.)</p>
-    </div>
-      <div class="col-sm-9">
-      <label for="customerPhone">phone</label>
-      <input class="form-control" id="customerPhone" type="text" formControlName="phone"/>
-      <p style="color: red" *ngIf="editCustomerForm.controls.phone.hasError('required')
+          </div>
+          <div class="col-sm-9">
+            <label for="customerPhone">Phone</label>
+            <input class="form-control" id="customerPhone" type="text" formControlName="phone"/>
+            <p style="color: red" *ngIf="editCustomerForm.controls.phone.hasError('required')
       && editCustomerForm.controls.phone.touched ">
-        this information cannot be left blank</p>
-      <p style="color: red" *ngIf="editCustomerForm.controls.phone.hasError('pattern') &&
+              this information cannot be left blank</p>
+            <p style="color: red" *ngIf="editCustomerForm.controls.phone.hasError('pattern') &&
       editCustomerForm.controls.phone.touched ">INVALID.(format:
-        [090xxxxxxx||091xxxxxxx||091xxxxxxx||(84)+91xxxxxxx])</p>
-    </div>
-      <div class="col-sm-9">
-      <label for="customerEmail">email</label>
-      <input class="form-control" id="customerEmail" type="text" formControlName="email"/>
-      <p style="color: red" *ngIf="editCustomerForm.controls.email.hasError('required')
+              [090xxxxxxx||091xxxxxxx||091xxxxxxx||(84)+91xxxxxxx])</p>
+          </div>
+          <div class="col-sm-9">
+            <label for="customerEmail">Email</label>
+            <input class="form-control" id="customerEmail" type="text" formControlName="email"/>
+            <p style="color: red" *ngIf="editCustomerForm.controls.email.hasError('required')
       && editCustomerForm.controls.email.touched ">
-        this information cannot be left blank</p>
-      <p style="color: red" *ngIf="editCustomerForm.controls.email.hasError('email')
+              this information cannot be left blank</p>
+            <p style="color: red" *ngIf="editCustomerForm.controls.email.hasError('email')
       && editCustomerForm.controls.email.touched ">INVALID.(format: [username@abc.xyz])</p>
-    </div>
-      <div class="col-sm-9">
-      <label for="customerAddress">address</label>
-      <input class="form-control" id="customerAddress" type="text" formControlName="address"/>
-      <p style="color: red" *ngIf="editCustomerForm.controls.address.hasError('required')
+          </div>
+          <div class="col-sm-9">
+            <label for="customerAddress">Address</label>
+            <input class="form-control" id="customerAddress" type="text" formControlName="address"/>
+            <p style="color: red" *ngIf="editCustomerForm.controls.address.hasError('required')
       && editCustomerForm.controls.address.touched ">
-    </div>
-      <div class="col-sm-9">
-      <label for="gender">Gender</label>
-      <select class="form-select" id="gender" formControlName="gender" name="Gender">
-        <option value="-1">Gender</option>
-        <option value="1">Male</option>
-        <option value="0">Female</option>
-      </select>
-      <p style="color: red" *ngIf="editCustomerForm.controls.gender.hasError('required')
+          </div>
+          <div class="col-sm-9">
+            <label for="gender">Gender</label>
+            <select class="form-select" id="gender" formControlName="gender" name="Gender">
+              <option value="-1">Gender</option>
+              <option value="1">Male</option>
+              <option value="0">Female</option>
+            </select>
+            <p style="color: red" *ngIf="editCustomerForm.controls.gender.hasError('required')
       && editCustomerForm.controls.gender.touched ">
-        this information cannot be left blank</p>
-    </div>
-      <div class="form-group row">
-      <label class="form-label col-sm-3" for="customerType">Customer Type</label>
-      <div class="col-sm-9">
-        <select id="customerType" formControlName="customerType" [compareWith]="compareWithId">
-          <option value="">Customer Type</option>
-          <option *ngFor="let customerType of customerTypeList" [ngValue]="customerType">
-            {{customerType.customerType}}
-          </option>
-        </select>
+              this information cannot be left blank</p>
+          </div>
+          <div class="form-group row">
+            <label for="customerType">Customer Type</label>
+            <div class="col-sm-9">
+              <select class="form-control" id="customerType"
+                      formControlName="customerType" [compareWith]="compareWithId">
+                <option value="">Customer Type</option>
+                <option *ngFor="let customerType of customerTypeList" [ngValue]="customerType">
+                  {{customerType.customerType}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <div class="text-center">
+        <button type="submit" class="btn btn-secondary mt-4 mx-2">Save</button>
+        <a [routerLink]="['/customer/list']">
+          <button type="button" class="btn btn-primary mt-4 mx-2">Cancel</button>
+        </a>
       </div>
-    </div>
-    </div>
-  </fieldset>
-  <div class="text-center">
-    <button type="submit" class="btn btn-secondary mt-4 mx-2">ADD</button>
-    <a [routerLink]="['/customer/list']">
-      <button type="button" class="btn btn-primary mt-4 mx-2">Cancel</button>
-    </a>
-  </div>
-</form>
+    </form>
   </div>
 </div>

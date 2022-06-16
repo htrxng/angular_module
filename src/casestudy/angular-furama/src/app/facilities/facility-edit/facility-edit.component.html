@@ -1,0 +1,130 @@
+
+<form [formGroup]="editFacilityForm" (ngSubmit)="editFacility()">
+  <fieldset class="w-75 mx-auto">
+    <legend class="text-center my-4"><span class="text-secondary">UPDATE SERVICE</span></legend>
+    <div class="form-group row">
+      <input type="hidden" formControlName="id">
+      <label class="form-label" for="facilityCode">Service Code</label>
+      <div class="col-sm-9">
+        <input class="form-control" id="facilityCode" type="text" formControlName="code"/>
+        <p style="color: red" *ngIf="editFacilityForm.controls.code.hasError('required')
+      && editFacilityForm.controls.code.touched ">this information cannot be left blank</p>
+      </div>
+      <div class="col-sm-9">
+        <label class="form-label" for="name">Service Name</label>
+        <input class="form-control" id="name" type="text" formControlName="name"/>
+        <p style="color: red" *ngIf="editFacilityForm.controls.name.hasError('required')
+      && editFacilityForm.controls.name.touched ">this information cannot be left blank</p></div>
+      <div class="col-sm-9">
+        <label class="form-label" for="serviceArea">Area</label>
+        <input class="form-control" id="serviceArea" type="text" formControlName="area"/>
+        <p style="color: red" *ngIf="editFacilityForm.controls.area.hasError('required')
+      && editFacilityForm.controls.area.touched ">this information cannot be left blank</p></div>
+      <div class="col-sm-9">
+        <label class="form-label" for="serviceCost">Cost</label>
+        <input class="form-control" id="serviceCost" type="text" formControlName="cost"/>
+        <p style="color: red" *ngIf="editFacilityForm.controls.cost.hasError('required')
+      && editFacilityForm.controls.cost.touched ">this information cannot be left blank</p></div>
+      <div class="col-sm-9">
+        <label class="form-label" for="serviceMaxPeople">Capacity</label>
+        <input class="form-control" id="serviceMaxPeople" type="text" formControlName="maximumPeople"/>
+        <p style="color: red" *ngIf="editFacilityForm.controls.maximumPeople.hasError('required')
+      && editFacilityForm.controls.maximumPeople.touched ">this information cannot be left blank</p></div>
+      <div class="col-sm-9">
+        <label class="form-label" for="standardRoom">Standard</label>
+        <input class="form-control" id="standardRoom" type="text" formControlName="roomStandard"/>
+        <p style="color: red" *ngIf="editFacilityForm.controls.roomStandard.hasError('required')
+      && editFacilityForm.controls.roomStandard.touched ">this information cannot be left blank</p></div>
+      <div class="col-sm-9">
+        <label class="form-label" for="descriptionOtherConvenience">Other Convenience</label>
+        <input class="form-control" id="descriptionOtherConvenience" type="text" formControlName="description"/>
+        <p style="color: red" *ngIf="editFacilityForm.controls.description.hasError('required')
+      && editFacilityForm.controls.description.touched ">this information cannot be left blank</p></div>
+      <div class="col-sm-9">
+        <label class="form-label" for="pool">Pool Area</label>
+        <input class="form-control" id="pool" type="text" formControlName="poolSquare"/>
+        <p style="color: red" *ngIf="editFacilityForm.controls.poolSquare.hasError('required')
+      && editFacilityForm.controls.poolSquare.touched ">this information cannot be left blank</p></div>
+      <div class="col-sm-9">
+        <label class="form-label" for="numberOfFloors">Number Of Floors</label>
+        <input class="form-control" id="numberOfFloors" type="text" formControlName="numberFloor"/>
+        <p style="color: red" *ngIf="editFacilityForm.controls.numberFloor.hasError('required')
+      && editFacilityForm.controls.numberFloor.touched ">this information cannot be left blank</p></div>
+      <div class="form-group row">
+        <label for="facilityTypeId">Service Type</label>
+        <div class="col-sm-9">
+          <select id="facilityTypeId"
+                  class="form-control"
+                  formControlName="facilityType"
+            [compareWith]="compareWithId">
+            <option value="">select facility type</option>
+            <option *ngFor="let facilityType of facilityTypes" [ngValue]="facilityType">
+              {{facilityType.facilityType}}
+            </option>
+          </select>
+        </div>
+        <p style="color: red" *ngIf="editFacilityForm.controls.facilityType.hasError('required')
+      && editFacilityForm.controls.facilityType.touched ">this information cannot be left blank</p></div>
+      <div class="form-group row">
+        <label for="rentTypeId">Rent Type</label>
+        <div class="col-sm-9">
+          <select id="rentTypeId"
+                  class="form-control"
+                  formControlName="rentType" [compareWith]="compareWithId">
+            <option value="">select rent type</option>
+            <option *ngFor="let rentType of rentTypes" [ngValue]="rentType">
+              {{rentType.rentType}}
+            </option>
+          </select>
+        </div>
+        <p style="color: red" *ngIf="editFacilityForm.controls.rentType.hasError('required')
+      && editFacilityForm.controls.rentType.touched ">this information cannot be left blank</p></div>
+    </div>
+  </fieldset>
+  <div class="text-center">
+    <button type="submit" class="btn btn-secondary mt-4 mx-2">Save</button>
+    <a [routerLink]="['/facility/list']">
+      <button type="button" class="btn btn-primary mt-4 mx-2">Cancel</button>
+    </a>
+  </div>
+</form>
+<!--<script>-->
+<!--  showFacilityType();-->
+
+<!--  function showFacilityType() {-->
+<!--    let selected = $("#facilityTypeId").val();-->
+<!--    if (selected == 3) { // Room-->
+<!--      $("#villaAndHouseOnly").hide();-->
+<!--      $("#villaOnly").hide();-->
+<!--      $("#roomOnly").show();-->
+<!--      $("#villaAndHouseOnly").find("input").each(function () {-->
+<!--        $(this).val("");-->
+<!--      });-->
+<!--      $("#villaOnly").find("input").each(function () {-->
+<!--        $(this).val("");-->
+<!--      });-->
+<!--    } else if (selected == 2) { //House-->
+<!--      $("#villaAndHouseOnly").show();-->
+<!--      $("#villaOnly").hide();-->
+<!--      $("#roomOnly").hide();-->
+<!--      $("#villaOnly").find("input").each(function () {-->
+<!--        $(this).val("");-->
+<!--      });-->
+<!--      $("#roomOnly").find("input").each(function () {-->
+<!--        $(this).val("");-->
+<!--      });-->
+<!--    } else if (selected == 1) { //Villa-->
+<!--      $("#villaAndHouseOnly").show();-->
+<!--      $("#villaOnly").show();-->
+<!--      $("#roomOnly").hide();-->
+<!--      $("#roomOnly").find("input").each(function () {-->
+<!--        $(this).val("");-->
+<!--      });-->
+<!--    } else {-->
+<!--      $("#villaAndHouseOnly").show();-->
+<!--      $("#villaOnly").show();-->
+<!--      $("#roomOnly").show();-->
+<!--    }-->
+<!--  }-->
+<!--</script>-->
+

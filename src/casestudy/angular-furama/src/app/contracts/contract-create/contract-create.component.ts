@@ -38,7 +38,7 @@ export class ContractCreateComponent implements OnInit {
     console.log(this.addContractForm);
     if (this.addContractForm.valid) {
       this.contractService.create(this.addContractForm.value);
-      this.route.navigateByUrl('/contractList');
+      this.route.navigateByUrl('/contract/list');
     }
   }
 }

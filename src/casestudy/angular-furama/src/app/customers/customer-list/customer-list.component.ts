@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {customerList} from '../../data/customerList';
+import {Component, OnInit} from '@angular/core';
 import {CustomerService} from '../customer.service';
-import {CustomerDeleteModalComponent} from '../../modal/customer-delete-modal/customer-delete-modal.component';
 import {Customer} from '../../model/Customer';
 
 @Component({
@@ -25,6 +23,6 @@ export class CustomerListComponent implements OnInit {
 
   deleteCustomer($event: number) {
     this.customerService.deleteCustomer($event);
-    this.ngOnInit();
+    this.ngOnInit() ;
   }
 }

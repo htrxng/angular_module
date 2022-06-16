@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Todo} from "../todo";
 import {FormControl} from "@angular/forms";
+import {TodoService} from "../todo.service";
+import {ActivatedRoute, ParamMap} from "@angular/router";
 
 let _id = 1;
 
@@ -12,27 +14,48 @@ let _id = 1;
 export class TodoComponent implements OnInit {
   todos: Todo[] = [];
   content = new FormControl();
+  constructor(private todoService: TodoService) {
 
-  constructor() {
   }
 
   ngOnInit() {
+    this.getAll();
   }
 
-  toggleTodo(i: number) {
-    this.todos[i].complete = !this.todos[i].complete;
+  toggleTodo(todo: Todo) {
+    todo.complete = !todo.complete;
+    this.todoService.update(todo).subscribe( todo => {
+      this.ngOnInit();
+    });
   }
 
-  change() {
+
+  delete(todo: Todo) {
+    console.log(todo);
+    this.todoService.delete(todo).subscribe(next => {
+      console.log('delete')
+      this.ngOnInit()
+    })
+  }
+
+  addToDo() {
     const value = this.content.value;
     if (value) {
       const todo: Todo = {
-        id: _id++,
         content: value,
         complete: false
       };
-      this.todos.push(todo);
-      this.content.reset();
+      this.todoService.save(todo).subscribe(next => {
+        console.log('log2')
+        this.ngOnInit();
+      })
     }
   }
+
+  private getAll() {
+    this.todoService.getAll().subscribe(todos => {
+      this.todos = todos;
+    })
+  }
+
 }

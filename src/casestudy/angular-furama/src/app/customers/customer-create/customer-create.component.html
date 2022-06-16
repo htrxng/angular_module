@@ -5,27 +5,27 @@
         <legend class="text-center my-4"><span class="text-secondary">ADD CUSTOMER</span></legend>
         <div class="form-group row">
           <div class="col-sm-9">
+            <label class="form-label" for="customerCode">Code</label>
             <input class="form-control" id="customerCode" type="text" formControlName="code"/>
-            <label class="form-label" for="customerCode">Customer Code</label>
             <p style="color: red" *ngIf="addCustomerForm.controls.code.hasError('required')
       && (addCustomerForm.controls.code.touched || submitted)">this information cannot be left blank</p>
             <p style="color: red" *ngIf="addCustomerForm.controls.code.hasError('pattern')
       && (addCustomerForm.controls.code.touched || submitted) ">INVALID.(format: KH-XXXX)</p>
           </div>
           <div class="col-sm-9">
+            <label class="form-label" for="customerName">Name</label>
             <input class="form-control" id="customerName" type="text" formControlName="name"/>
-            <label class="form-label" for="customerName">CustomerName</label>
             <p style="color: red" *ngIf="addCustomerForm.controls.name.hasError('required')
       && (addCustomerForm.controls.name.touched || submitted) ">this information cannot be left blank</p>
           </div>
           <div class="col-sm-9">
-            <label for="customerDateOfBirth">Birth Date</label>
+            <label for="customerDateOfBirth">Birthday</label>
             <input class="form-control" id="customerDateOfBirth" type="date" formControlName="birthday"/>
             <p style="color: red" *ngIf="addCustomerForm.controls.birthday.hasError('required')
       && (addCustomerForm.controls.birthday.touched || submitted) ">this information cannot be left blank</p>
           </div>
           <div class="col-sm-9">
-            <label for="customerIdCard">Id Card</label>
+            <label for="customerIdCard">ID Card</label>
             <input class="form-control" id="customerIdCard" type="text" formControlName="idCard"/>
             <p style="color: red" *ngIf="addCustomerForm.controls.idCard.hasError('required')
       && (addCustomerForm.controls.idCard.touched || submitted) ">
@@ -34,7 +34,7 @@
       && (addCustomerForm.controls.idCard.touched || submitted)">INVALID.(format: 9 or 12 numbers.)</p>
           </div>
           <div class="col-sm-9">
-            <label for="customerPhone">phone</label>
+            <label for="customerPhone">Phone</label>
             <input class="form-control" id="customerPhone" type="text" formControlName="phone"/>
             <p style="color: red" *ngIf="addCustomerForm.controls.phone.hasError('required')
       && (addCustomerForm.controls.phone.touched || submitted) ">
@@ -44,7 +44,7 @@
               [090xxxxxxx||091xxxxxxx||091xxxxxxx||(84)+91xxxxxxx])</p>
           </div>
           <div class="col-sm-9">
-            <label for="customerEmail">email</label>
+            <label for="customerEmail">Email</label>
             <input class="form-control" id="customerEmail" type="text" formControlName="email"/>
             <p style="color: red" *ngIf="addCustomerForm.controls.email.hasError('required')
       && (addCustomerForm.controls.email.touched || submitted) ">
@@ -53,7 +53,7 @@
       && (addCustomerForm.controls.email.touched || submitted) ">INVALID.(format: [username@abc.xyz])</p>
           </div>
           <div class="col-sm-9" id="input-pool">
-            <label for="customerAddress">address</label>
+            <label for="customerAddress">Address</label>
             <input class="form-control" id="customerAddress" type="text" formControlName="address"/>
             <p style="color: red" *ngIf="addCustomerForm.controls.address.hasError('required')
       && (addCustomerForm.controls.address.touched || submitted) ">
@@ -70,9 +70,9 @@
               this information cannot be left blank</p>
           </div>
           <div class="form-group row">
-            <label class="form-label col-sm-3" for="customerType">Customer Type</label>
+            <label for="customerType">Customer Type</label>
             <div class="col-sm-9">
-              <select id="customerType" formControlName="customerType">
+              <select class="form-control" id="customerType" formControlName="customerType">
                 <option value="">Customer Type</option>
                 <option *ngFor="let customerType of customerTypes" [ngValue]="customerType">
                   {{customerType.customerType}}

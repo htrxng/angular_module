@@ -1,0 +1,99 @@
+/*h1{*/
+/*    height: 300px;*/
+/*    font-size: 300px;*/
+/*width: 300px}*/
+
+
+@-webkit-keyframes my {
+  0% {
+    color: #F8CD0A;
+  }
+  /*10% { color: red; }*/
+  /*20% { color: cornflowerblue; }*/
+  30% {
+    color: cornflowerblue;
+  }
+  /*40% { color: palevioletred; }*/
+  60% {
+    color: cyan;
+  }
+  /*70% { color:  deeppink; }*/
+  /*80% { color: yellow; }*/
+  /*90% { color: white; }*/
+  100% {
+    color: green;
+  }
+}
+
+@-moz-keyframes my {
+  0% {
+    color: #F8CD0A;
+  }
+  /*10% { color: red; }*/
+  /*20% { color: cornflowerblue; }*/
+  30% {
+    color: cornflowerblue;
+  }
+  /*40% { color: palevioletred; }*/
+  60% {
+    color: cyan;
+  }
+  /*70% { color:  deeppink; }*/
+  /*80% { color: yellow; }*/
+  /*90% { color: white; }*/
+  100% {
+    color: green;
+  }
+}
+
+@-o-keyframes my {
+  0% {
+    color: #F8CD0A;
+  }
+  /*10% { color: red; }*/
+  /*20% { color: cornflowerblue; }*/
+  30% {
+    color: cornflowerblue;
+  }
+  /*40% { color: palevioletred; }*/
+  60% {
+    color: cyan;
+  }
+  /*70% { color:  deeppink; }*/
+  /*80% { color: yellow; }*/
+  /*90% { color: white; }*/
+  100% {
+    color: green;
+  }
+}
+
+@keyframes my {
+  0% {
+    color: #F8CD0A;
+  }
+  /*10% { color: red; }*/
+  /*20% { color: cornflowerblue; }*/
+  30% {
+    color: cornflowerblue;
+  }
+  /*40% { color: palevioletred; }*/
+  60% {
+    color: cyan;
+  }
+  /*70% { color:  deeppink; }*/
+  /*80% { color: yellow; }*/
+  /*90% { color: white; }*/
+  100% {
+    color: green;
+  }
+}
+
+.text-animation {
+  font-size: 80px;
+  font-weight: bold;
+  -webkit-animation: my 700ms infinite;
+  -moz-animation: my 700ms infinite;
+  -o-animation: my 700ms infinite;
+  animation: my 700ms infinite;
+}
+

@@ -1,65 +1,42 @@
-<!--<h1 style="text-align: center">Facility List</h1>-->
-<section class="ftco-section bg-light">
-  <div class="container">
-    <div class="row">
-      <svg [routerLink]="['/facility/create']" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16" style="background-color: white; color: #1c7430" >
-        <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
-      </svg>
-          <div class="card col-3" *ngFor="let facility of facilityList" >
-            <img src="{{facility.image}}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">{{facility.name}}</h5>
-              <p style="font-weight: bold; color: #0062cc"><span class="price mr-2" style="font-size: large">{{facility.cost | currency}}</span> <span class="per">per night</span></p>
-            </div>
-            <ul class="list">
-              <li><span>Max:</span> {{facility.maximumPeople}} Persons</li>
-              <li><span>Size:</span> {{facility.area}} m2</li>
-              <li><span>Rent Type:</span> {{facility.rentType.rentType}}</li>
-            </ul>
-            <div class="card-body">
-              <a class="btn btn-warning mx-2" [routerLink]="['/facility/edit']">Update</a>
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteModal" value="{{facility.name}}">
-                Delete
-              </button>
-            </div>
+<div class="container-fluid" style="margin-top: 30px">
+  <h1 style="text-align: center">Facility List <svg [routerLink]="['/facility/create']" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                                                    fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16"
+                                                    style="background-color: white; color: #1c7430">
+    <path
+      d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
+  </svg></h1>
+  <section class="ftco-section bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="card col-4"  *ngFor="let facility of facilityList">
+          <img style="width: 420px; height: 300px" src="{{facility.image}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{facility.name}}</h5>
+            <p style="font-weight: bold; color: #0062cc">
+              <span class="price mr-2" style="font-size: large">{{facility.cost | currency}}</span>
+              <span class="per">per night</span>
+            </p>
+          </div>
+          <ul class="list">
+            <li><span>Max:</span> {{facility.maximumPeople}} Persons</li>
+            <li><span>Size:</span> {{facility.area}} m2</li>
+            <li><span>Rent Type:</span> {{facility.rentType.rentType}}</li>
+          </ul>
+          <div class="card-body">
+            <a class="btn btn-warning mx-2" [routerLink]="['/facility/edit',facility.id]">Update</a>
+            <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal"
+                    (click)="sendDataToDelete(facility.id,facility.name)">
+              Delete
+            </button>
           </div>
         </div>
-
-  </div>
-</section>
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="deleteModalLabel">Delete Facility</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <input type="hidden" name="id" id="get-id">
-                  <h1 style="color: black" id="get-name">
-                    Name Facilities:
-                  </h1>
-                  <hr>
-                  <p>Are You Sure ???</p>
-                  <p style="color: red">this action cant not revert</p>
-                </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Delete!</button>
       </div>
     </div>
-  </div>
-
-<script>
-  function deleteModal(id, name) {
-    document.getElementById("get-id").value = id;
-    document.getElementById("get-name").innerText = name;
-  }
-</script>
-
+  </section>
+</div>
+<app-facility-delete-modal [facilityName]="facilityName" [facilityId]="facilityId"
+                           (confirmFacility)="deleteFacility($event)">
+</app-facility-delete-modal>
 
 
 

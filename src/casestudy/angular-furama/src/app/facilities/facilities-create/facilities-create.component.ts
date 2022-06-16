@@ -1,12 +1,11 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {rentTypeList} from '../../data/rentType';
 import {FacilityService} from '../facility.service';
-import {facilityType} from '../../data/facilityType';
 import {FacilityTypeService} from '../facility-type.service';
 import {RentTypeService} from '../rent-type.service';
 import {RentType} from '../../model/RentType';
 import {FacilityType} from '../../model/FacilityType';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-facilities-create',
@@ -14,30 +13,31 @@ import {FacilityType} from '../../model/FacilityType';
   styleUrls: ['./facilities-create.component.css']
 })
 export class FacilitiesCreateComponent implements OnInit {
-  @Output() submitCreate = new EventEmitter();
   addFacilityForm: FormGroup;
   rentTypes: RentType[] = [];
   facilityTypes: FacilityType[] = [];
 
-  constructor(private facilityService: FacilityService,
+  constructor(private route: Router,
+              private facilityService: FacilityService,
               private facilityTypeService: FacilityTypeService,
               private rentTypeService: RentTypeService) {
     this.facilityTypes = facilityTypeService.getAll();
     this.rentTypes = rentTypeService.getAll();
     this.addFacilityForm = new FormGroup({
       code: new FormControl(''),
-      image: new FormControl('', [Validators.required]),
+      // image: new FormControl('../../assets/images/image_6.jpg'),
+      image: new FormControl('https://pix10.agoda.net/hotelImages/118/1189080/1189080_16040409330041278078.jpg?ca=6&ce=1&s=1024x768'),
       name: new FormControl('', [Validators.required]),
       rentType: new FormControl('', [Validators.required]),
       cost: new FormControl('', [Validators.required]),
       area: new FormControl('', [Validators.required]),
       maximumPeople: new FormControl('', [Validators.required]),
       roomStandard: new FormControl('', [Validators.required]),
-      description: new FormControl('', [Validators.required]),
-      poolSquare: new FormControl('', [Validators.required]),
-      numberFloor: new FormControl('', [Validators.required]),
+      description: new FormControl(''),
+      poolSquare: new FormControl(''),
+      numberFloor: new FormControl(''),
       facilityType: new FormControl('', [Validators.required]),
-      freeServiceInclude: new FormControl('', [Validators.required]),
+      freeServiceInclude: new FormControl(''),
     });
   }
 
@@ -48,6 +48,7 @@ export class FacilitiesCreateComponent implements OnInit {
     console.log(this.addFacilityForm);
     if (this.addFacilityForm.valid) {
       this.facilityService.create(this.addFacilityForm.value);
+      this.route.navigateByUrl('/facility/list');
     }
   }
 
