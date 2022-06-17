@@ -10,19 +10,23 @@
       <div class="row">
         <div class="card col-4"  *ngFor="let facility of facilityList">
           <img style="width: 420px; height: 300px" src="{{facility.image}}" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">{{facility.name}}</h5>
+          <div class="card-body" style="text-align: center">
+            <h2 class="card-title" style="font-family: 'Goudy Old Style';font-style: italic">{{facility.name}}</h2>
             <p style="font-weight: bold; color: #0062cc">
               <span class="price mr-2" style="font-size: large">{{facility.cost | currency}}</span>
               <span class="per">per night</span>
             </p>
           </div>
           <ul class="list">
-            <li><span>Max:</span> {{facility.maximumPeople}} Persons</li>
+            <li><span>Max:</span> {{facility.maximumPeople}}
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                   class="bi bi-person-fill" viewBox="0 0 16 16">
+              <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+            </svg></li>
             <li><span>Size:</span> {{facility.area}} m2</li>
             <li><span>Rent Type:</span> {{facility.rentType.rentType}}</li>
           </ul>
-          <div class="card-body">
+          <div class="card-body" style="text-align: center">
             <a class="btn btn-warning mx-2" [routerLink]="['/facility/edit',facility.id]">Update</a>
             <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal"
                     (click)="sendDataToDelete(facility.id,facility.name)">

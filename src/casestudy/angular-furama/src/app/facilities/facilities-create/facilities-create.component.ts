@@ -25,7 +25,6 @@ export class FacilitiesCreateComponent implements OnInit {
     this.rentTypes = rentTypeService.getAll();
     this.addFacilityForm = new FormGroup({
       code: new FormControl(''),
-      // image: new FormControl('../../assets/images/image_6.jpg'),
       image: new FormControl('https://pix10.agoda.net/hotelImages/118/1189080/1189080_16040409330041278078.jpg?ca=6&ce=1&s=1024x768'),
       name: new FormControl('', [Validators.required]),
       rentType: new FormControl('', [Validators.required]),
@@ -47,8 +46,9 @@ export class FacilitiesCreateComponent implements OnInit {
   createFacility() {
     console.log(this.addFacilityForm);
     if (this.addFacilityForm.valid) {
-      this.facilityService.create(this.addFacilityForm.value);
-      this.route.navigateByUrl('/facility/list');
+      this.facilityService.create(this.addFacilityForm.value).subscribe(() => {
+        this.route.navigateByUrl('/facility/list');
+      });
     }
   }
 

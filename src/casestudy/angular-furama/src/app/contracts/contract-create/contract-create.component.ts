@@ -14,7 +14,6 @@ import {Router} from '@angular/router';
   styleUrls: ['./contract-create.component.css']
 })
 export class ContractCreateComponent implements OnInit {
-  @Output() submitCreate = new EventEmitter();
   addContractForm: FormGroup;
   facilities = facilityList;
   customers: Customer[];
@@ -37,8 +36,9 @@ export class ContractCreateComponent implements OnInit {
   createContract() {
     console.log(this.addContractForm);
     if (this.addContractForm.valid) {
-      this.contractService.create(this.addContractForm.value);
-      this.route.navigateByUrl('/contract/list');
+      this.contractService.create(this.addContractForm.value).subscribe(() => {
+        this.route.navigateByUrl('/contract/list');
+      });
     }
   }
 }

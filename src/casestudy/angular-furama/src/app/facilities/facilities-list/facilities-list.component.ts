@@ -16,7 +16,7 @@ export class FacilitiesListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.facilityList = this.facilityService.getList();
+    this.getAll();
   }
 
   sendDataToDelete(id: number, name: string) {
@@ -25,7 +25,14 @@ export class FacilitiesListComponent implements OnInit {
   }
 
   deleteFacility($event: number) {
-    this.facilityService.deleteFacility($event);
-    this.ngOnInit();
+    this.facilityService.deleteFacility($event).subscribe(() => {
+      this.ngOnInit();
+    });
+  }
+
+  private getAll() {
+    this.facilityService.getList().subscribe(facilities => {
+      this.facilityList = facilities;
+    });
   }
 }

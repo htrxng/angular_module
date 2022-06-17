@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {contractList} from '../../data/contractList';
 import {ContractService} from '../contract.service';
 import {Contract} from '../../model/Contract';
 
@@ -15,7 +14,12 @@ export class ContractListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.contractList = this.contractService.getList();
+    this.getList();
   }
 
+  private getList() {
+    this.contractService.getList().subscribe(contracts => {
+      this.contractList = contracts;
+    });
+  }
 }

@@ -33,24 +33,25 @@ export class FacilityEditComponent implements OnInit {
     activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       const id = paramMap.get('id');
       if (id != null) {
-        this.facility = this.facilityService.findById(Number(id));
+        this.facilityService.findById(Number(id)).subscribe(facility => {
+          this.editFacilityForm = new FormGroup({
+            id: new FormControl(facility.id),
+            code: new FormControl(facility.code),
+            image: new FormControl(facility.image),
+            name: new FormControl(facility.name, [Validators.required]),
+            rentType: new FormControl(facility.rentType, [Validators.required]),
+            cost: new FormControl(facility.cost, [Validators.required]),
+            area: new FormControl(facility.area, [Validators.required]),
+            maximumPeople: new FormControl(facility.maximumPeople, [Validators.required]),
+            roomStandard: new FormControl(facility.roomStandard, [Validators.required]),
+            description: new FormControl(facility.description),
+            poolSquare: new FormControl(facility.poolSquare),
+            numberFloor: new FormControl(facility.numberFloor),
+            facilityType: new FormControl(facility.facilityType, [Validators.required]),
+            freeServiceInclude: new FormControl(facility.freeServiceInclude),
+          });
+        });
       }
-    });
-    this.editFacilityForm = new FormGroup({
-      id: new FormControl(this.facility.id),
-      code: new FormControl(this.facility.code),
-      image: new FormControl(this.facility.image),
-      name: new FormControl(this.facility.name, [Validators.required]),
-      rentType: new FormControl(this.facility.rentType, [Validators.required]),
-      cost: new FormControl(this.facility.cost, [Validators.required]),
-      area: new FormControl(this.facility.area, [Validators.required]),
-      maximumPeople: new FormControl(this.facility.maximumPeople, [Validators.required]),
-      roomStandard: new FormControl(this.facility.roomStandard, [Validators.required]),
-      description: new FormControl(this.facility.description),
-      poolSquare: new FormControl(this.facility.poolSquare),
-      numberFloor: new FormControl(this.facility.numberFloor),
-      facilityType: new FormControl(this.facility.facilityType, [Validators.required]),
-      freeServiceInclude: new FormControl(this.facility.freeServiceInclude),
     });
   }
 
@@ -60,8 +61,9 @@ export class FacilityEditComponent implements OnInit {
   editFacility() {
     console.log(this.editFacilityForm);
     if (this.editFacilityForm.valid) {
-      this.facilityService.update(this.editFacilityForm.value);
-      this.route.navigateByUrl('/facility/list');
+      this.facilityService.update(this.editFacilityForm.value).subscribe(facility => {
+        this.route.navigateByUrl('/facility/list');
+      });
     }
   }
 }

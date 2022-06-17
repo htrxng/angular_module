@@ -8,12 +8,15 @@ import {Customer} from '../../model/Customer';
   styleUrls: ['./customer-list.component.css']
 })
 export class CustomerListComponent implements OnInit {
-  customerName: string ;
-  customerId: number ;
+  customerName: string;
+  customerId: number;
   customerList: Customer[] = [];
-  constructor(private customerService: CustomerService) { }
-  ngOnInit(): void {
-    this.customerList = this.customerService.getList();
+
+  constructor(private customerService: CustomerService) {
+  }
+
+  ngOnInit() {
+    this.getAll();
   }
 
   sendDataToDelete(id: number, name: string) {
@@ -22,7 +25,14 @@ export class CustomerListComponent implements OnInit {
   }
 
   deleteCustomer($event: number) {
-    this.customerService.deleteCustomer($event);
-    this.ngOnInit() ;
+    this.customerService.deleteCustomer($event).subscribe(next => {
+      this.ngOnInit();
+    });
+  }
+
+  private getAll() {
+    this.customerService.getList().subscribe(customers => {
+      this.customerList = customers;
+    });
   }
 }

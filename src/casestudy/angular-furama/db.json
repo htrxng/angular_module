@@ -1,0 +1,327 @@
+{
+  "customers": [
+    {
+      "id": 2,
+      "code": "KH-0002",
+      "name": "Grace",
+      "birthday": "1995-01-01",
+      "idCard": "123123123",
+      "email": "grace.ray@gmail.com",
+      "phone": "0904333333",
+      "gender": "1",
+      "address": "London",
+      "customerType": {
+        "id": 2,
+        "customerType": "Silver"
+      }
+    },
+    {
+      "id": 3,
+      "code": "KH-0003",
+      "name": "Kate Hunington",
+      "birthday": "1992-12-08",
+      "idCard": "12314594111",
+      "email": "kate.hunington@gmail.com",
+      "phone": "0904333333",
+      "gender": "1",
+      "address": "New York",
+      "customerType": {
+        "id": 3,
+        "customerType": "Gold"
+      }
+    },
+    {
+      "id": 4,
+      "code": "KH-1231",
+      "name": "Trần Văn Hữu Trung",
+      "birthday": "1999-06-01",
+      "idCard": "123456789111",
+      "email": "htrung@gmail.com",
+      "phone": "0904333333",
+      "gender": "1",
+      "address": "Huế",
+      "customerType": {
+        "id": 3,
+        "customerType": "Gold"
+      }
+    }
+  ],
+  "facilities": [
+    {
+      "id": 1,
+      "code": "DV-0001",
+      "name": "Suite Room",
+      "image": "../../assets/images/room-1.jpg",
+      "rentType": {
+        "id": 1,
+        "rentType": "Day"
+      },
+      "cost": 120,
+      "area": 45,
+      "maximumPeople": 3,
+      "roomStandard": "Suite Room",
+      "facilityType": {
+        "id": 3,
+        "facilityType": "Room"
+      }
+    },
+    {
+      "id": 2,
+      "code": "DV-0002",
+      "image": "../../assets/images/room-2.jpg",
+      "name": "Family Room",
+      "rentType": {
+        "id": 1,
+        "rentType": "day"
+      },
+      "cost": "50",
+      "area": 45,
+      "maximumPeople": "5",
+      "roomStandard": "Suite Room",
+      "description": "Breakfast",
+      "poolSquare": null,
+      "numberFloor": null,
+      "facilityType": {
+        "id": 3,
+        "facilityType": "Room"
+      },
+      "freeServiceInclude": null
+    },
+    {
+      "id": 3,
+      "code": "DV-0003",
+      "name": "Deluxe Room",
+      "image": "../../assets/images/room-3.jpg",
+      "rentType": {
+        "id": 1,
+        "rentType": "day"
+      },
+      "cost": 150,
+      "area": 45,
+      "maximumPeople": 5,
+      "roomStandard": "Deluxe",
+      "facilityType": {
+        "id": 3,
+        "facilityType": "Room"
+      }
+    },
+    {
+      "id": 4,
+      "code": "DV-0004",
+      "name": "Classic Room",
+      "image": "../../assets/images/room-4.jpg",
+      "rentType": {
+        "id": 1,
+        "rentType": "Day"
+      },
+      "cost": 130,
+      "area": 45,
+      "maximumPeople": 5,
+      "roomStandard": "Deluxe",
+      "facilityType": {
+        "id": 3,
+        "facilityType": "Room"
+      }
+    },
+    {
+      "id": 5,
+      "code": "DV-0005",
+      "name": "Superior Room",
+      "image": "../../assets/images/room-5.jpg",
+      "rentType": {
+        "id": 1,
+        "rentType": "day"
+      },
+      "cost": 300,
+      "area": 45,
+      "maximumPeople": 6,
+      "roomStandard": "Superior",
+      "facilityType": {
+        "id": 3,
+        "facilityType": "Room"
+      }
+    },
+    {
+      "id": 6,
+      "code": "DV-0006",
+      "name": "Luxury Room",
+      "image": "../../assets/images/room-6.jpg",
+      "rentType": {
+        "id": 1,
+        "rentType": "day"
+      },
+      "cost": 500,
+      "area": 45,
+      "maximumPeople": 5,
+      "roomStandard": "Luxury",
+      "facilityType": {
+        "id": 3,
+        "facilityType": "Room"
+      }
+    },
+    {
+      "id": 7,
+      "code": "DV-0007",
+      "image": "https://pix10.agoda.net/hotelImages/118/1189080/1189080_16040409330041278078.jpg?ca=6&ce=1&s=1024x768",
+      "name": "House Beach 01",
+      "rentType": {
+        "id": 3,
+        "rentType": "day"
+      },
+      "cost": "111",
+      "area": "111",
+      "maximumPeople": "11",
+      "roomStandard": "Deluxe",
+      "description": "Breakfast",
+      "poolSquare": "26",
+      "numberFloor": "1",
+      "facilityType": {
+        "id": 2,
+        "facilityType": "House"
+      },
+      "freeServiceInclude": ""
+    }
+  ],
+  "contracts": [
+    {
+      "id": 1,
+      "startDate": "01-06-2022",
+      "endDate": "07-06-2022",
+      "deposit": 200,
+      "total": 1500,
+      "customer": {
+        "id": 1,
+        "code": "KH-0001",
+        "name": "Huu Trung",
+        "birthday": "2002-18-08",
+        "idCard": "191923459",
+        "phone": "0345059222",
+        "email": "huutrungg02@gmail.com",
+        "address": "Hue",
+        "customerType": {
+          "id": 1,
+          "customerType": "Platinum"
+        },
+        "gender": 1
+      },
+      "facility": {
+        "id": 3,
+        "name": "Deluxe Room",
+        "image": "../../assets/images/room-3.jpg",
+        "rentType": {
+          "id": 1,
+          "rentType": "day"
+        },
+        "cost": 150,
+        "area": 45,
+        "maximumPeople": 5,
+        "roomStandard": "Deluxe"
+      }
+    },
+    {
+      "id": 2,
+      "startDate": "01-06-2022",
+      "endDate": "07-06-2022",
+      "deposit": 200,
+      "total": 1500,
+      "customer": {
+        "id": 2,
+        "code": "KH-0002",
+        "name": "Grace",
+        "birthday": "1995-18-01",
+        "idCard": "123123123",
+        "phone": "051141411",
+        "email": "grace.ray@gmail.com",
+        "address": "London",
+        "customerType": {
+          "id": 2,
+          "customerType": "Silver"
+        },
+        "gender": 0
+      },
+      "facility": {
+        "id": 1,
+        "name": "Suite Room",
+        "image": "../../assets/images/room-1.jpg",
+        "rentType": {
+          "id": 1,
+          "rentType": "day"
+        },
+        "cost": 120,
+        "area": 45,
+        "maximumPeople": 3,
+        "roomStandard": "Suite Room"
+      }
+    },
+    {
+      "id": 3,
+      "startDate": "10-06-2022",
+      "endDate": "12-06-2022",
+      "deposit": 300,
+      "total": 2000,
+      "customer": {
+        "id": 3,
+        "code": "KH-0003",
+        "name": "Kate Hunington",
+        "birthday": "1992-12-08",
+        "idCard": "12314594111",
+        "phone": "068688554",
+        "email": "kate.hunington@gmail.com",
+        "address": "New York",
+        "customerType": {
+          "id": 3,
+          "customerType": "Gold"
+        },
+        "gender": 0
+      },
+      "facility": {
+        "id": 4,
+        "name": "Classic Room",
+        "image": "../../assets/images/room-4.jpg",
+        "rentType": {
+          "id": 1,
+          "rentType": "day"
+        },
+        "cost": 130,
+        "area": 45,
+        "maximumPeople": 5,
+        "roomStandard": "Deluxe"
+      }
+    },
+    {
+      "startDate": "2022-06-18",
+      "endDate": "2022-06-20",
+      "deposit": 20,
+      "total": 150,
+      "facility": {
+        "id": 4,
+        "name": "Classic Room",
+        "image": "../../assets/images/room-4.jpg",
+        "rentType": {
+          "id": 1,
+          "rentType": "day"
+        },
+        "cost": 130,
+        "area": 45,
+        "maximumPeople": 5,
+        "roomStandard": "Deluxe"
+      },
+      "customer": {
+        "id": 1,
+        "code": "KH-0001",
+        "name": "Huu Trung",
+        "birthday": "2002-18-08",
+        "idCard": "191923459",
+        "phone": "0345059222",
+        "email": "huutrungg02@gmail.com",
+        "address": "Hue",
+        "customerType": {
+          "id": 1,
+          "customerType": "Platinum"
+        },
+        "gender": 1
+      },
+      "id": 4
+    }
+  ]
+}

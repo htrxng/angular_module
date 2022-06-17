@@ -8,6 +8,7 @@ import {FooterComponent} from './footer/footer.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {FacilityModule} from './facilities/facility.module';
 import { HomeComponent } from './home/home.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HomeComponent } from './home/home.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FacilityModule
+    FacilityModule,
+    HttpClientModule,
   ],
   providers: [],
   exports: [],

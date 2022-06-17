@@ -47,9 +47,9 @@
             <span class="badge badge-info rounded-pill d-inline">{{customer.customerType.customerType}}</span>
           </td>
           <td>
-            <p class="fw-normal mb-1" *ngIf="customer.gender===0;else elseBlock">Male</p>
+            <p class="fw-normal mb-1" *ngIf="customer.gender===0;else elseBlock">Female</p>
             <ng-template #elseBlock>
-              <p>Female</p>
+              <p>Male</p>
             </ng-template>
             <p class="text-muted mb-0">{{customer.birthday}}</p>
           </td>

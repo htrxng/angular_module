@@ -29,21 +29,22 @@ export class CustomerEditComponent implements OnInit {
     activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       const id = paramMap.get('id');
       if (id != null) {
-        this.customer = this.customerService.findById(Number(id));
+        this.customerService.findById(Number(id)).subscribe(customer => {
+          this.editCustomerForm = new FormGroup({
+            id: new FormControl(customer.id),
+            code: new FormControl(customer.code, [Validators.required, Validators.pattern(/^KH-\d{4}$/)]),
+            name: new FormControl(customer.name, [Validators.required]),
+            birthday: new FormControl(customer.birthday, [Validators.required]),
+            idCard: new FormControl(customer.idCard, [Validators.required, Validators.pattern(/^\d{9}|\d{12}$/)]),
+            email: new FormControl(customer.email, [Validators.required, Validators.email]),
+            phone: new FormControl(customer.phone, [Validators.required,
+              Validators.pattern(/^((\(84\)\+(90))|(\(84\)\+(91))|(090)|(091))\d{7}$/)]),
+            gender: new FormControl(customer.gender, [Validators.required]),
+            address: new FormControl(customer.address, [Validators.required]),
+            customerType: new FormControl(customer.customerType, [Validators.required]),
+          });
+        });
       }
-    });
-    this.editCustomerForm = new FormGroup({
-      id: new FormControl(this.customer.id),
-      code: new FormControl(this.customer.code, [Validators.required, Validators.pattern(/^KH-\d{4}$/)]),
-      name: new FormControl(this.customer.name, [Validators.required]),
-      birthday: new FormControl(this.customer.birthday, [Validators.required]),
-      idCard: new FormControl(this.customer.idCard, [Validators.required, Validators.pattern(/^\d{9}|\d{12}$/)]),
-      email: new FormControl(this.customer.email, [Validators.required, Validators.email]),
-      phone: new FormControl(this.customer.phone, [Validators.required,
-        Validators.pattern(/^((\(84\)\+(90))|(\(84\)\+(91))|(090)|(091))\d{7}$/)]),
-      gender: new FormControl(this.customer.gender, [Validators.required]),
-      address: new FormControl(this.customer.address, [Validators.required]),
-      customerType: new FormControl(this.customer.customerType, [Validators.required]),
     });
   }
 
@@ -54,8 +55,9 @@ export class CustomerEditComponent implements OnInit {
   editCustomer() {
     console.log(this.editCustomerForm);
     if (this.editCustomerForm.valid) {
-      this.customerService.update(this.editCustomerForm.value);
-      this.route.navigateByUrl('/customer/list');
+      this.customerService.update(this.editCustomerForm.value).subscribe(customer => {
+        this.route.navigateByUrl('/customer/list');
+      });
     }
   }
 }
