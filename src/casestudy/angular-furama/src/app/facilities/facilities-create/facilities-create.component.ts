@@ -21,8 +21,12 @@ export class FacilitiesCreateComponent implements OnInit {
               private facilityService: FacilityService,
               private facilityTypeService: FacilityTypeService,
               private rentTypeService: RentTypeService) {
-    this.facilityTypes = facilityTypeService.getAll();
-    this.rentTypes = rentTypeService.getAll();
+    facilityTypeService.getAll().subscribe(facilityTypes => {
+      this.facilityTypes = facilityTypes;
+    });
+    rentTypeService.getAll().subscribe(rentTypes => {
+      this.rentTypes = rentTypes;
+    });
     this.addFacilityForm = new FormGroup({
       code: new FormControl(''),
       image: new FormControl('https://pix10.agoda.net/hotelImages/118/1189080/1189080_16040409330041278078.jpg?ca=6&ce=1&s=1024x768'),

@@ -26,8 +26,8 @@
       "gender": "1",
       "address": "New York",
       "customerType": {
-        "id": 3,
-        "customerType": "Gold"
+        "id": 5,
+        "customerType": "Diamond"
       }
     },
     {
@@ -41,8 +41,8 @@
       "gender": "1",
       "address": "Huế",
       "customerType": {
-        "id": 3,
-        "customerType": "Gold"
+        "id": 1,
+        "customerType": "Member"
       }
     }
   ],
@@ -72,7 +72,7 @@
       "name": "Family Room",
       "rentType": {
         "id": 1,
-        "rentType": "day"
+        "rentType": "Day"
       },
       "cost": "50",
       "area": 45,
@@ -94,7 +94,7 @@
       "image": "../../assets/images/room-3.jpg",
       "rentType": {
         "id": 1,
-        "rentType": "day"
+        "rentType": "Day"
       },
       "cost": 150,
       "area": 45,
@@ -130,7 +130,7 @@
       "image": "../../assets/images/room-5.jpg",
       "rentType": {
         "id": 1,
-        "rentType": "day"
+        "rentType": "Day"
       },
       "cost": 300,
       "area": 45,
@@ -148,7 +148,7 @@
       "image": "../../assets/images/room-6.jpg",
       "rentType": {
         "id": 1,
-        "rentType": "day"
+        "rentType": "Day"
       },
       "cost": 500,
       "area": 45,
@@ -160,26 +160,26 @@
       }
     },
     {
-      "id": 7,
       "code": "DV-0007",
       "image": "https://pix10.agoda.net/hotelImages/118/1189080/1189080_16040409330041278078.jpg?ca=6&ce=1&s=1024x768",
-      "name": "House Beach 01",
+      "name": "House Beach 02",
       "rentType": {
         "id": 3,
-        "rentType": "day"
+        "rentType": "Day"
       },
       "cost": "111",
       "area": "111",
       "maximumPeople": "11",
       "roomStandard": "Deluxe",
       "description": "Breakfast",
-      "poolSquare": "26",
+      "poolSquare": "25",
       "numberFloor": "1",
       "facilityType": {
         "id": 2,
         "facilityType": "House"
       },
-      "freeServiceInclude": ""
+      "freeServiceInclude": "",
+      "id": 7
     }
   ],
   "contracts": [
@@ -322,6 +322,38 @@
         "gender": 1
       },
       "id": 4
+    }
+  ],
+  "rentTypes": [
+    {
+      "id": 1,
+      "rentType": "Year"
+    },
+    {
+      "id": 2,
+      "rentType": "Month"
+    },
+    {
+      "id": 3,
+      "rentType": "Day"
+    },
+    {
+      "id": 4,
+      "rentType": "Hour"
+    }
+  ],
+  "facilityTypes": [
+    {
+      "id": 1,
+      "facilityType": "Villa"
+    },
+    {
+      "id": 2,
+      "facilityType": "House"
+    },
+    {
+      "id": 3,
+      "facilityType": "Room"
     }
   ]
 }

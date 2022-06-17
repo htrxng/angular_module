@@ -1,11 +1,11 @@
 <div class="container-fluid" style="margin-top: 30px">
-  <h1 style="text-align: center">Our Customers
-    <svg [routerLink]="['/customer/create']" xmlns="http://www.w3.org/2000/svg"
-         width="25" height="25" fill="currentColor"
-         class="bi bi-plus-square-fill" viewBox="0 0 16 16"
-         style="background-color: white; color: #1c7430">
-      <path
-        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
+  <h1 style="text-align: center;font-family: Rye">Our Customers
+    <svg [routerLink]="['/customer/create']" xmlns="http://www.w3.org/2000/svg" width="27" height="30" fill="blue"
+         class="bi bi-person-plus" viewBox="0 0 16 16">
+      <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6
+      4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+      <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1
+      0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
     </svg>
   </h1>
 
@@ -43,13 +43,39 @@
               </div>
             </div>
           </td>
-          <td *ngIf="customer.customerType.id">
-            <span class="badge badge-info rounded-pill d-inline">{{customer.customerType.customerType}}</span>
+          <td>
+            <div [ngSwitch]="customer.customerType.id">
+              <div *ngSwitchCase="1">
+                <span class="badge badge-danger rounded-pill d-inline">{{customer.customerType.customerType}}</span>
+              </div>
+              <div *ngSwitchCase="2">
+                <span class="badge badge-secondary rounded-pill d-inline">{{customer.customerType.customerType}}</span>
+              </div>
+              <div *ngSwitchCase="3">
+                <span class="badge badge-warning rounded-pill d-inline">{{customer.customerType.customerType}}</span>
+              </div>
+              <div *ngSwitchCase="4">
+                <span class="badge badge-info rounded-pill d-inline">{{customer.customerType.customerType}}</span>
+              </div>
+              <div *ngSwitchCase="5">
+                <span class="badge badge-light rounded-pill d-inline">{{customer.customerType.customerType}}</span>
+              </div>
+            </div>
           </td>
           <td>
-            <p class="fw-normal mb-1" *ngIf="customer.gender===0;else elseBlock">Female</p>
+            <p class="fw-normal mb-1" *ngIf="customer.gender===0;else elseBlock">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                   class="bi bi-gender-female" viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                    d="M8 1a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM3 5a5 5 0 1 1 5.5 4.975V12h2a.5.5 0 0 1 0 1h-2v2.5a.5.5 0 0 1-1
+                     0V13h-2a.5.5 0 0 1 0-1h2V9.975A5 5 0 0 1 3 5z"/>
+            </svg></p>
             <ng-template #elseBlock>
-              <p>Male</p>
+              <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-gender-male" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M9.5 2a.5.5 0 0 1 0-1h5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0V2.707L9.871
+                6.836a5 5 0 1 1-.707-.707L13.293 2H9.5zM6 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/>
+              </svg></p>
             </ng-template>
             <p class="text-muted mb-0">{{customer.birthday}}</p>
           </td>
@@ -60,12 +86,29 @@
           <!--              <a class="btn btn-success" href="detailCustomer.html">Detail</a>-->
           <!--            </td>-->
           <td>
-            <a class="btn btn-warning" [routerLink]="['/customer/edit',customer.id]">Update</a>
+            <a class="btn btn-warning" [routerLink]="['/customer/edit',customer.id]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                   class="bi bi-wrench-adjustable" viewBox="0 0 16 16">
+                <path d="M16 4.5a4.492 4.492 0 0 1-1.703 3.526L13 5l2.959-1.11c.027.2.041.403.041.61Z"/>
+                <path
+                  d="M11.5 9c.653 0 1.273-.139 1.833-.39L12 5.5 11 3l3.826-1.53A4.5 4.5 0 0 0 7.29 6.092l-6.116
+                  5.096a2.583 2.583 0 1 0 3.638 3.638L9.908 8.71A4.49 4.49 0 0 0
+                  11.5 9Zm-1.292-4.361-.596.893.809-.27a.25.25 0 0 1 .287.377l-.596.893.809-.27.158.475-1.5.5a.25.25 0
+                  0 1-.287-.376l.596-.893-.809.27a.25.25 0 0 1-.287-.377l.596-.893-.809.27-.158-.475 1.5-.5a.25.25 0
+                  0 1 .287.376ZM3 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
+              </svg>
+            </a>
           </td>
           <td>
             <a class="btn btn-danger" data-mdb-toggle="modal" data-mdb-target="#exampleModal"
                (click)="sendDataToDelete(customer.id,customer.name)">
-              Delete
+              <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor"
+                   class="bi bi-person-x-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                      d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0
+                      0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14
+                      7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
+              </svg>
             </a>
           </td>
         </tr>

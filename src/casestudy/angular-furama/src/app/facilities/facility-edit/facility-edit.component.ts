@@ -28,8 +28,12 @@ export class FacilityEditComponent implements OnInit {
               private facilityTypeService: FacilityTypeService,
               private rentTypeService: RentTypeService,
               private route: Router) {
-    this.facilityTypes = facilityTypeService.getAll();
-    this.rentTypes = rentTypeService.getAll();
+    facilityTypeService.getAll().subscribe(facilityTypes => {
+      this.facilityTypes = facilityTypes;
+    });
+    rentTypeService.getAll().subscribe(rentTypes => {
+      this.rentTypes = rentTypes;
+    });
     activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       const id = paramMap.get('id');
       if (id != null) {

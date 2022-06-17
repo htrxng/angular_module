@@ -1,14 +1,24 @@
 <div class="container-fluid" style="margin-top: 30px">
-  <h1 style="text-align: center">Facility List <svg [routerLink]="['/facility/create']" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
-                                                    fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16"
-                                                    style="background-color: white; color: #1c7430">
-    <path
-      d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
-  </svg></h1>
+  <h1 style="text-align: center;font-family: font serif">Facility List
+    <button [routerLink]="['/facility/create']" class="btn btn-outline-danger">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-building"
+           viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+              d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5
+              0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694 1
+              10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z"></path>
+        <path
+          d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2
+          0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2
+          0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z"></path>
+      </svg>
+      ADD
+    </button>
+  </h1>
   <section class="ftco-section bg-light">
     <div class="container">
       <div class="row">
-        <div class="card col-4"  *ngFor="let facility of facilityList">
+        <div class="card col-4" *ngFor="let facility of facilityList">
           <img style="width: 420px; height: 300px" src="{{facility.image}}" class="card-img-top" alt="...">
           <div class="card-body" style="text-align: center">
             <h2 class="card-title" style="font-family: 'Goudy Old Style';font-style: italic">{{facility.name}}</h2>
@@ -21,8 +31,9 @@
             <li><span>Max:</span> {{facility.maximumPeople}}
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                    class="bi bi-person-fill" viewBox="0 0 16 16">
-              <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-            </svg></li>
+                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+              </svg>
+            </li>
             <li><span>Size:</span> {{facility.area}} m2</li>
             <li><span>Rent Type:</span> {{facility.rentType.rentType}}</li>
           </ul>
