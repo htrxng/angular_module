@@ -1,0 +1,94 @@
+<div class="col-8 mx-auto">
+  <div class="mx-auto shadow-lg p-3 mb-5 bg-white rounded-lg">
+    <form [formGroup]="addBusForm" (ngSubmit)="createBus()">
+      <fieldset class="w-75 mx-auto">
+        <legend class="text-center my-4"><span
+          class="text-secondary">Thêm xe mới</span></legend>
+        <div class="form-group row">
+          <div class="col-sm-9">
+            <label class="form-label" for="licensePlates">Biển số xe</label>
+            <input class="form-control" id="licensePlates" type="text" formControlName="licensePlates"/>
+            <p style="color: red" *ngIf="addBusForm.controls.licensePlates.hasError('required')
+      && (addBusForm.controls.licensePlates.touched || submitted)">this information cannot be left blank</p>
+          </div>
+          <div class="col-sm-9">
+            <label class="form-label" for="busType">Loại xe</label>
+            <input class="form-control" id="busType" type="text" formControlName="busType"/>
+            <p style="color: red" *ngIf="addBusForm.controls.busType.hasError('required')
+      && (addBusForm.controls.busType.touched || submitted)">this information cannot be left blank</p>
+          </div>
+          <div class="col-sm-9">
+            <label for="departurePosition">Điểm đi</label>
+            <div>
+              <select class="form-control" id="departurePosition" formControlName="departurePosition">
+                <option value="">Điểm đi</option>
+                <option value="Đà Nẵng">Đà Nẵng</option>
+                <option value="Huế">Huế</option>
+                <option value="Sài gòn">Sài gòn</option>
+                <option value="Hà Nội">Hà Nội</option>
+              </select>
+              <p style="color: red" *ngIf="addBusForm.controls.departurePosition.hasError('required')
+      && (addBusForm.controls.departurePosition.touched || submitted) ">
+                this information cannot be left blank</p>
+            </div>
+          </div>
+          <div class="col-sm-9">
+            <label for="destination">Điểm đến</label>
+            <div >
+              <select class="form-control" id="destination" formControlName="destination">
+                <option value="">Điểm đi</option>
+                <option value="Đà Nẵng">Đà Nẵng</option>
+                <option value="Huế">Huế</option>
+                <option value="Sài gòn">Sài gòn</option>
+                <option value="Hà Nội">Hà Nội</option>
+              </select>
+              <p style="color: red" *ngIf="addBusForm.controls.destination.hasError('required')
+      && (addBusForm.controls.destination.touched || submitted) ">
+                this information cannot be left blank</p>
+            </div>
+          </div>
+          <div class="col-sm-9">
+            <label for="phone">Số điện thoại</label>
+            <input class="form-control" id="phone" type="text" formControlName="phone"/>
+            <p style="color: red" *ngIf="addBusForm.controls.phone.hasError('required')
+      && (addBusForm.controls.phone.touched || submitted) ">this information cannot be left blank</p>
+          </div>
+          <div class="col-sm-9">
+            <label for="departureTime">Giờ khởi hành</label>
+            <input class="form-control" id="departureTime" type="text" formControlName="departureTime"/>
+            <p style="color: red" *ngIf="addBusForm.controls.departureTime.hasError('required')
+      && (addBusForm.controls.departureTime.touched || submitted) ">
+              this information cannot be left blank</p>
+          </div>
+          <div class="col-sm-9">
+            <label for="destinationTime">Giờ đến</label>
+            <input class="form-control" id="destinationTime" type="text" formControlName="destinationTime"/>
+            <p style="color: red" *ngIf="addBusForm.controls.destinationTime.hasError('required')
+      && (addBusForm.controls.destinationTime.touched || submitted) ">
+              this information cannot be left blank</p>
+          </div>
+          <div class="form-select">
+            <label for="busWareHouse">Nhà Xe</label>
+            <div class="col-sm-9">
+              <select class="form-control" id="busWareHouse" formControlName="busWareHouse">
+                <option value="">Nhà Xe</option>
+                <option *ngFor="let busWareHouse of busWareHouseList" [ngValue]="busWareHouse">
+                  {{busWareHouse.busWareHouseName}}
+                </option>
+              </select>
+              <p style="color: red" *ngIf="addBusForm.controls.busWareHouse.hasError('required')
+      && (addBusForm.controls.busWareHouse.touched || submitted) ">
+                this information cannot be left blank</p>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <div class="text-center">
+        <button type="submit" class="btn btn-secondary mt-4 mx-2">Thêm mới</button>
+        <a [routerLink]="['/buses']">
+          <button type="button" class="btn btn-primary mt-4 mx-2">Quay về</button>
+        </a>
+      </div>
+    </form>
+  </div>
+</div>

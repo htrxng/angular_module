@@ -1,0 +1,21 @@
+<h1>Danh sách giao dich</h1>
+<table>
+  <tr>
+    <td>STT</td>
+    <td>Ma giao dich</td>
+    <td>Ten khach hang</td>
+    <td>Loai dich vu</td>
+    <td>Ngay giao dich</td>
+    <td>Don gia</td>
+    <td>Dien tich</td>
+  </tr>
+  <tr *ngFor="let transaction of transactionList; index as i">
+    <td>{{i + 1}}</td>
+    <td>{{transaction.transactionCode}}</td>
+    <td>{{transaction.customer.name}}</td>
+    <td>{{transaction.serviceType}}</td>
+    <td>{{transaction.transactionDate}}</td>
+    <td>{{transaction.cost}}</td>
+    <td>{{transaction.area}}</td>
+  </tr>
+</table>

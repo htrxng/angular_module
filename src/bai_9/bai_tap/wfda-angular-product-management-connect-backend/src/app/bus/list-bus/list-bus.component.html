@@ -1,0 +1,56 @@
+<div class="container-fluid" style="margin-top: 30px">
+  <h1>Danh sách các xe đăng ký ở bến xe Đà Nẵng
+  </h1>
+  <button class="btn btn-success" [routerLink]="['/create-bus']">Thêm mới</button>
+  <div class="row">
+    <div class="col-lg-12">
+      <table class="table">
+        <thead class="table-dark">
+        <tr>
+          <th scope="col">Số xe</th>
+          <th scope="col">Loại Xe</th>
+          <th scope="col">Tên nhà xe</th>
+          <th scope="col">Điểm đi</th>
+          <th scope="col">Điểm đến</th>
+          <th scope="col">Số điện thoại</th>
+          <th scope="col">Email</th>
+          <th scope="col">Giờ đi</th>
+          <th scope="col">Giờ đến</th>
+          <th colspan="2">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let bus of busList">
+          <td>{{bus.licensePlates}}</td>
+          <td>{{bus.busType}}</td>
+          <td>{{bus.busWareHouse.busWareHouseName}}</td>
+          <td>{{bus.departurePosition}}</td>
+          <td>{{bus.destination}}</td>
+          <td>{{bus.phone}}</td>
+          <td>{{bus.busWareHouse.email}}</td>
+          <td>{{bus.departureTime}}</td>
+          <td>{{bus.destinationTime}}</td>
+          <td>
+            <button type="button" class="btn btn-outline-warning"><a [routerLink]="['/edit',bus.busId]">Sửa</a>
+            </button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal"
+                    (click)="sendDataToDelete(bus.busId,bus.licensePlates)">
+              Xoá
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <div>
+        <mat-paginator [pageSizeOptions]="[2, 4, 6, 8]" [pageSize]="2" [length]="totalElements"
+                       (page)="nextPage($event)"></mat-paginator>
+      </div>
+    </div>
+  </div>
+</div>
+<app-delete-modal [licensePlates]="licensePlates" [busId]="id"
+                  (confirmDelete)="deleteBus($event)">
+</app-delete-modal>
+

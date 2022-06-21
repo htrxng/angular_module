@@ -24,7 +24,7 @@ export class CustomerService {
   }
 
   update(customer: Customer): Observable<Customer> {
-    return this.http.put<Customer>(`${API_URL}/customers/${customer.id}`,customer);
+    return this.http.put<Customer>(`${API_URL}/customers/${customer.id}`, customer);
     // for (let i = 0; i < this.customers.length; i++) {
     //   if (this.customers[i].id === customer.id) {
     //     this.customers[i] = customer;

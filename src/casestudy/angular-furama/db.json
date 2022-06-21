@@ -1,5 +1,6 @@
 {
-  "customers": [
+  "customers":
+  [
     {
       "id": 2,
       "code": "KH-0002",
@@ -11,8 +12,8 @@
       "gender": "1",
       "address": "London",
       "customerType": {
-        "id": 2,
-        "customerType": "Silver"
+        "id": 3,
+        "customerType": "Gold"
       }
     },
     {

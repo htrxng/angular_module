@@ -3,19 +3,30 @@ import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {SharedModule} from './shared/shared.module';
 import {HttpClientModule} from '@angular/common/http';
+import {DeleteModalComponent} from './delete-modal/delete-modal.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import { ListBusComponent } from './bus/list-bus/list-bus.component';
+import { EditBusComponent } from './bus/edit-bus/edit-bus.component';
+import { CreateBusComponent } from './bus/create-bus/create-bus.component';
+// @ts-ignore
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DeleteModalComponent,
+    ListBusComponent,
+    EditBusComponent,
+    CreateBusComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    SharedModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+      MatPaginatorModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,20 +1,51 @@
 {
-  "categories": [
+  "busWareHouses": [
     {
-      "name": "phone",
-      "id": 1
+      "id": 1,
+      "busWareHouseName": "Mai Linh",
+      "email": "mailinh@gmail.com"
     },
     {
       "id": 2,
-      "name": "tv"
+      "busWareHouseName": "Hoàng Long",
+      "email": "hoanglong@gmail.com"
     },
     {
       "id": 3,
-      "name": "book"
+      "busWareHouseName": "Phương Trang",
+      "email": "phuongtrang@gmail.com"
+    }
+  ],
+  "buses": [
+    {
+      "id": 1,
+      "licensePlates": 1111,
+      "departurePosition": "Đà Nẵng",
+      "destination": "Huế",
+      "phone": "0901231233",
+      "departureTime": "13:20",
+      "destinationTime": "23:00",
+      "busType": "Giường nằm",
+      "busWareHouse": {
+        "id": 2,
+        "busWareHouseName": "Hoàng Long",
+        "email": "hoanglong@gmail.com"
+      }
     },
     {
-      "name": "laptop",
-      "id": 5
+      "id": 2,
+      "licensePlates": "2222",
+      "departurePosition": "Sài gòn",
+      "destination": "Hà Nội",
+      "phone": "0901231233",
+      "departureTime": "01:30",
+      "destinationTime": "23:30",
+      "busType": "Giường nằm",
+      "busWareHouse": {
+        "id": 1,
+        "busWareHouseName": "Mai Linh",
+        "email": "mailinh@gmail.com"
+      }
     }
   ]
 }

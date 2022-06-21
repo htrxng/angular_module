@@ -1,16 +1,23 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {ListBusComponent} from './bus/list-bus/list-bus.component';
+import {EditBusComponent} from './bus/edit-bus/edit-bus.component';
+import {CreateBusComponent} from './bus/create-bus/create-bus.component';
 
 
 const routes: Routes = [
   {
-    path: 'product',
-    loadChildren: () => import('./product/product.module').then(module => module.ProductModule)
+    path: '', component: ListBusComponent,
   },
   {
-    path: 'category',
-    loadChildren: () => import('./category/category.module').then(module => module.CategoryModule)
-  }
+    path: 'buses', component: ListBusComponent,
+  },
+  {
+    path: 'create-bus', component: CreateBusComponent,
+  },
+  {
+    path: 'edit/:id', component: EditBusComponent,
+  },
 ];
 
 @NgModule({

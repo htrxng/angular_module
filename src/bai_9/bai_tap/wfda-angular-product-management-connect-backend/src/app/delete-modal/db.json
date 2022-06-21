@@ -1,0 +1,36 @@
+{
+  "busWareHouses": [
+    {
+      "id": 1,
+      "busWareHouseName": "Mai Linh",
+      "email": "mailinh@gmail.com"
+    },
+    {
+      "id": 2,
+      "busWareHouseName": "Hoàng Long",
+      "email": "hoanglong@gmail.com"
+    },
+    {
+      "id": 3,
+      "busWareHouseName": "Phương Trang",
+      "email": "phuongtrang@gmail.com"
+    }
+  ],
+  "buses": [
+    {
+      "id": 1,
+      "licensePlates": 1111,
+      "departurePosition": "Đà Nẵng",
+      "destination": "Hà Nội",
+      "phone": "0901231231",
+      "departureTime": "13:20",
+      "destinationTime": "23:00",
+      "busType": "Giường nằm",
+      "busWareHouse": {
+        "busWareHouseId": 1,
+        "busWareHouseName": "Mai Linh",
+        "email": "mailinh@gmail.com"
+      }
+    }
+  ]
+}

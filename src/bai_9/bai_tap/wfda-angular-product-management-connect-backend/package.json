@@ -2,7 +2,7 @@
   "name": "angular-product-management",
   "version": "0.0.0",
   "scripts": {
-    "json-server": "json-server --watch db.json",
+    "json-server": "json-server --watch src/app/delete-modal/db.json",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -20,7 +20,9 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
+    "bootstrap": "^5.1.3",
     "json-server": "^0.17.0",
+    "ngx-pagination": "^6.0.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
