@@ -9,8 +9,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { ListBusComponent } from './bus/list-bus/list-bus.component';
 import { EditBusComponent } from './bus/edit-bus/edit-bus.component';
 import { CreateBusComponent } from './bus/create-bus/create-bus.component';
-// @ts-ignore
-import {MatPaginatorModule} from '@angular/material/paginator';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +24,6 @@ import {MatPaginatorModule} from '@angular/material/paginator';
         AppRoutingModule,
         HttpClientModule,
         ReactiveFormsModule,
-      MatPaginatorModule,
     ],
   providers: [],
   bootstrap: [AppComponent]

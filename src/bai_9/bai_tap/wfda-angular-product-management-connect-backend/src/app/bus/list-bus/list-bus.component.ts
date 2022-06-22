@@ -1,7 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {BusService} from '../bus.service';
 import {Bus} from '../../model/bus';
-import {PageEvent} from '@angular/material/paginator';
+import {BusWareHouse} from '../../model/bus-ware-house';
+import {Router} from '@angular/router';
+
 @Component({
   selector: 'app-list-bus',
   templateUrl: './list-bus.component.html',
@@ -9,27 +11,22 @@ import {PageEvent} from '@angular/material/paginator';
 })
 export class ListBusComponent implements OnInit {
   busList: Bus[];
+  busWareHouseList: BusWareHouse[];
   licensePlates: number;
   id: number;
+  @ViewChild('busWareHouseName') busWareHouseName: ElementRef;
+  @ViewChild('busWareHouseId') busWareHouseId: ElementRef;
 
-  p: number;
-  totalElements = 0;
-
-  constructor(private busService: BusService) {
-  }
-
-  ngOnInit() {
-    this.getAllBusPaging(0);
-  }
-
-  private getAllBusPaging(request) {
-    this.busService.getBusList(request).subscribe(busList => {
-      this.busList = busList['content'];
-      this.totalElements = busList['totalElements'];
-      // this.busList = busList;
+  constructor(private busService: BusService,
+              private route: Router) {
+    busService.getBusWareHouseList().subscribe(busWareHouseList => {
+      this.busWareHouseList = busWareHouseList;
     });
   }
 
+  ngOnInit() {
+    this.getAllBusNotPaging();
+  }
 
   private getAllBusNotPaging() {
     this.busService.getList().subscribe(busList => {
@@ -49,14 +46,11 @@ export class ListBusComponent implements OnInit {
     });
   }
 
-
-  nextPage(event: PageEvent) {
-    const request = {
-      page: undefined,
-      size: undefined
-    };
-    request.page = event.pageIndex.toString();
-    request.size = event.pageSize.toString();
-    this.getAllBusPaging(request);
+  search() {
+    this.busService.searchVehicle(this.busWareHouseName.nativeElement.value,
+      this.busWareHouseId.nativeElement.value).subscribe(busList => {
+      this.busList = busList;
+      this.route.navigateByUrl('');
+    });
   }
 }

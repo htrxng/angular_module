@@ -20,6 +20,9 @@ export class EditBusComponent implements OnInit {
   compareWithId(item1, item2) {
     return item1 && item2 && item1.id === item2.id;
   }
+  compareWithIdBWH(item1: BusWareHouse, item2: BusWareHouse): boolean {
+    return item1 && item2 && item1.busWareHouseId === item2.busWareHouseId;
+  }
 
   constructor(private activatedRoute: ActivatedRoute,
               private busService: BusService,

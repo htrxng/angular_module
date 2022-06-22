@@ -73,7 +73,7 @@
             <label for="busWareHouse">Nhà Xe</label>
             <div class="col-sm-9">
               <select class="form-control" id="busWareHouse" formControlName="busWareHouse"
-                      [compareWith]="compareWithId">
+                      [compareWith]="compareWithIdBWH">
                 <option value="">Nhà Xe</option>
                 <option *ngFor="let busWareHouse of busWareHouseList" [ngValue]="busWareHouse">
                   {{busWareHouse.busWareHouseName}}

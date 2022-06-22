@@ -4,7 +4,6 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Bus} from '../model/bus';
 import {BusWareHouse} from '../model/bus-ware-house';
-import {Page} from 'ngx-pagination';
 
 const API_URL = `${environment.apiUrl}`;
 
@@ -43,8 +42,12 @@ export class BusService {
     return this.http.post<Bus>(API_URL + '/buses', bus);
   }
 
-  getBusList(index: number): Observable<any> {
-    console.log('getList');
-    return this.http.get<Page>(API_URL + '/busPaging?index=' + index);
+  // getBusList(index: number): Observable<any> {
+  //   console.log('getList');
+  //   return this.http.get<Page>(API_URL + '/busPaging?index=' + index);
+  // }
+  searchVehicle(busWareHouseName: string, busWareHouseId: string): Observable<Bus[]> {
+    return this.http.get<Bus[]>
+    (`${API_URL}/searchingBus?busWareHouseName=${busWareHouseName}&busWareHouseId=${busWareHouseId}`);
   }
 }
