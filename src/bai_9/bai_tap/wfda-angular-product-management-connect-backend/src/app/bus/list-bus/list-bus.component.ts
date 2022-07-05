@@ -14,8 +14,8 @@ export class ListBusComponent implements OnInit {
   busWareHouseList: BusWareHouse[];
   licensePlates: number;
   id: number;
-  @ViewChild('busWareHouseName') busWareHouseName: ElementRef;
-  @ViewChild('busWareHouseId') busWareHouseId: ElementRef;
+  @ViewChild('busWareHouseName', {static: false}) busWareHouseName: ElementRef;
+  @ViewChild('busWareHouseId', {static: false}) busWareHouseId: ElementRef;
 
   constructor(private busService: BusService,
               private route: Router) {

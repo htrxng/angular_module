@@ -47,5 +47,132 @@
         "email": "mailinh@gmail.com"
       }
     }
+  ],
+  "suppliers": [
+    {
+      "supplierId": "DOMESCO",
+      "supplierName": "Công ty Domesco",
+      "supplierAddress": "Ba Đình, Hà Nội",
+      "supplierPhone": "090123456",
+      "supplierEmail": "domescovn@gmail.com",
+      "note": "domescodegym",
+      "flag": true
+    },
+    {
+      "supplierId": "DHN",
+      "supplierName": "DƯỢC HÀ NỘI",
+      "supplierAddress": "Đống Đa, Hà Nội",
+      "supplierPhone": "090123456",
+      "supplierEmail": "duochanoi@gmail.com",
+      "note": "duochanoi",
+      "flag": true
+    }
+  ],
+  "medicines": [
+    {
+      "medicineId": "T00001",
+      "medicineName": "Vitamin B1",
+      "medicineActiveIngredients": "Omega A",
+      "medicineImportPrice": 100,
+      "medicineDiscount": 5,
+      "medicineWholesaleProfit": 5,
+      "medicineRetailSaleProfit": 10,
+      "medicineTax": 2,
+      "medicineConversionRate": 100,
+      "medicineManufacture": "Trafaco",
+      "medicineUsage": "medicineUsage",
+      "medicineInstruction": "medicineInstruction",
+      "medicineAgeApproved": "7",
+      "medicineImage": "medicineImage",
+      "medicineDescription": "medicineDescription",
+      "medicineOrigin": {
+        "medicineOriginId": 1,
+        "medicineOriginName": "Viet Nam"
+      },
+      "medicineType": {
+        "medicineTypeId": "NT00001",
+        "medicineTypeName": "Vitamin"
+      },
+      "medicineUnit": {
+        "medicineUnitId": 1,
+        "medicineUnitName": "Hộp"
+      },
+      "medicineConversionUnit": {
+        "medicineConversionUnitId": 1,
+        "medicineConversionUnitName": "Vỉ"
+      },
+      "flag": true
+    },
+    {
+      "medicineId": "T00002",
+      "medicineName": "Vitamin B2",
+      "medicineActiveIngredients": "Vitamin B2",
+      "medicineImportPrice": 100,
+      "medicineDiscount": 5,
+      "medicineWholesaleProfit": 5,
+      "medicineRetailSaleProfit": 10,
+      "medicineTax": 2,
+      "medicineConversionRate": 100,
+      "medicineManufacture": "Trafaco",
+      "medicineUsage": "medicineUsage",
+      "medicineInstruction": "medicineInstruction",
+      "medicineAgeApproved": "7",
+      "medicineImage": "medicineImage",
+      "medicineDescription": "medicineDescription",
+      "medicineOrigin": {
+        "medicineOriginId": 1,
+        "medicineOriginName": "Viet Nam"
+      },
+      "medicineType": {
+        "medicineTypeId": "NT00001",
+        "medicineTypeName": "Vitamin"
+      },
+      "medicineUnit": {
+        "medicineUnitId": 1,
+        "medicineUnitName": "Hộp"
+      },
+      "medicineConversionUnit": {
+        "medicineConversionUnitId": 1,
+        "medicineConversionUnitName": "Vỉ"
+      },
+      "flag": true
+    },
+    {
+      "medicineId": "T00003",
+      "medicineName": "Vitamin B3",
+      "medicineActiveIngredients": "Vitamin B3",
+      "medicineImportPrice": 100,
+      "medicineDiscount": 5,
+      "medicineWholesaleProfit": 5,
+      "medicineRetailSaleProfit": 10,
+      "medicineTax": 2,
+      "medicineConversionRate": 100,
+      "medicineManufacture": "Trafaco",
+      "medicineUsage": "medicineUsage",
+      "medicineInstruction": "medicineInstruction",
+      "medicineAgeApproved": "7",
+      "medicineImage": "medicineImage",
+      "medicineDescription": "medicineDescription",
+      "medicineOrigin": {
+        "medicineOriginId": 1,
+        "medicineOriginName": "Viet Nam"
+      },
+      "medicineType": {
+        "medicineTypeId": "NT00001",
+        "medicineTypeName": "Vitamin"
+      },
+      "medicineUnit": {
+        "medicineUnitId": 1,
+        "medicineUnitName": "Hộp"
+      },
+      "medicineConversionUnit": {
+        "medicineConversionUnitId": 1,
+        "medicineConversionUnitName": "Vỉ"
+      },
+      "flag": true
+    }
+  ],
+  "import-invoice": [
+
   ]
 }

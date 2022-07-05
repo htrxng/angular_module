@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8080/api/bus'
+  apiUrl: 'http://localhost:8080/api/manager-medicine',
+  // apiUrl: 'http://localhost:3000',
 };
 
 /*

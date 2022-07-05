@@ -3,6 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {ListBusComponent} from './bus/list-bus/list-bus.component';
 import {EditBusComponent} from './bus/edit-bus/edit-bus.component';
 import {CreateBusComponent} from './bus/create-bus/create-bus.component';
+import {ImportInvoiceCreateComponent} from './import-invoice/import-invoice-create/import-invoice-create.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,10 @@ const routes: Routes = [
   },
   {
     path: 'edit/:id', component: EditBusComponent,
+  },
+  {
+    path        : 'import-invoice',
+    loadChildren: () => import('./import-invoice/import-invoice.module').then(module => module.ImportInvoiceModule)
   },
 ];
 

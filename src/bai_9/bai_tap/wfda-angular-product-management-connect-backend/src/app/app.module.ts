@@ -6,9 +6,9 @@ import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {DeleteModalComponent} from './delete-modal/delete-modal.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import { ListBusComponent } from './bus/list-bus/list-bus.component';
-import { EditBusComponent } from './bus/edit-bus/edit-bus.component';
-import { CreateBusComponent } from './bus/create-bus/create-bus.component';
+import {ListBusComponent} from './bus/list-bus/list-bus.component';
+import {EditBusComponent} from './bus/edit-bus/edit-bus.component';
+import {CreateBusComponent} from './bus/create-bus/create-bus.component';
 
 
 @NgModule({
@@ -17,7 +17,7 @@ import { CreateBusComponent } from './bus/create-bus/create-bus.component';
     DeleteModalComponent,
     ListBusComponent,
     EditBusComponent,
-    CreateBusComponent
+    CreateBusComponent,
   ],
     imports: [
         BrowserModule,
