@@ -1,7 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {BusService} from '../bus.service';
-import {Bus} from '../../model/bus';
-import {BusWareHouse} from '../../model/bus-ware-house';
+import {Bus} from '../../model/bus/bus';
+import {BusWareHouse} from '../../model/bus/bus-ware-house';
 import {Router} from '@angular/router';
 
 @Component({

@@ -19,13 +19,16 @@ import {CreateBusComponent} from './bus/create-bus/create-bus.component';
     EditBusComponent,
     CreateBusComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        ReactiveFormsModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
+  exports: [
+    DeleteModalComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

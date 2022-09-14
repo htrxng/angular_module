@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Bus} from '../model/bus';
-import {BusWareHouse} from '../model/bus-ware-house';
+import {Bus} from '../model/bus/bus';
+import {BusWareHouse} from '../model/bus/bus-ware-house';
 
 const API_URL = `${environment.apiUrl}`;
 
@@ -29,7 +29,7 @@ export class BusService {
   }
 
   findById(id: number): Observable<Bus> {
-    return this.http.get<Bus>(`${API_URL}/findBus/${id}`);
+      return this.http.get<Bus>(`${API_URL}/findBus/${id}`);
   }
 
   update(bus: Bus): Observable<Bus> {

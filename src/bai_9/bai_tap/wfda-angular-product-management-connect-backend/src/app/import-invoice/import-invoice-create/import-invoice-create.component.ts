@@ -1,9 +1,9 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
-import {Supplier} from '../../model/supplier';
-import {Medicine} from '../../model/medicine';
-import {ImportInvoiceMedicine} from '../../model/import-invoice-medicine';
-import {Employee} from '../../model/employee';
+import {Supplier} from '../../model/pharmarcy/supplier';
+import {Medicine} from '../../model/pharmarcy/medicine';
+import {ImportInvoiceMedicine} from '../../model/pharmarcy/import-invoice-medicine';
+import {Employee} from '../../model/pharmarcy/employee';
 import {ImportInvoiceService} from '../import-invoice.service';
 
 

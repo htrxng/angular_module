@@ -1,0 +1,112 @@
+<div class="col-8 mx-auto">
+  <div class="mx-auto shadow-lg p-3 mb-5 bg-white rounded-lg">
+    <form [formGroup]="createTravelTourForm" (ngSubmit)="createTour()">
+      <fieldset class="w-75 mx-auto">
+        <legend class="text-center my-4"><span
+          class="text-secondary">Tạo tour mới</span>
+        </legend>
+        <div class="form-group row">
+          <div>
+            <input class="form-control" id="tourId" type="hidden" formControlName="tourId"/>
+          </div>
+          <div class="col-sm-9">
+            <label class="form-label" for="tourName">Tên tour</label>
+            <input class="form-control" id="tourName" type="text" formControlName="tourName"/>
+            <p style="color: red" *ngIf="createTravelTourForm.controls.tourName.hasError('required')
+      && (createTravelTourForm.controls.tourName.touched || submitted)">Thông tin này là bắt buộc.</p>
+          </div>
+          <div class="col-sm-9">
+            <label class="form-label" for="address">Địa điểm</label>
+            <input class="form-control" id="address" type="text" formControlName="address"/>
+            <p style="color: red" *ngIf="createTravelTourForm.controls.address.hasError('required')
+      && (createTravelTourForm.controls.address.touched || submitted)">Thông tin này là bắt buộc.</p>
+          </div>
+          <div class="col-sm-9">
+            <label class="form-label" for="startDate">Ngày khởi hành</label>
+            <input class="form-control" id="startDate" type="date" formControlName="startDate"/>
+            <p style="color: red" *ngIf="createTravelTourForm.controls.startDate.hasError('required')
+      && (createTravelTourForm.controls.startDate.touched || submitted)">Thông tin này là bắt buộc.</p>
+          </div>
+          <div class="col-sm-9">
+            <label class="form-label" for="endDate">Ngày về</label>
+            <input class="form-control" id="endDate" type="date" formControlName="endDate"/>
+          </div>
+          <div class="col-sm-9">
+          <label class="form-label" for="endRegisterDate">Ngày kết thúc đăng ký</label>
+          <input class="form-control" id="endRegisterDate" type="date" formControlName="endRegisterDate"/>
+        </div>
+          <div class="col-sm-9">
+            <label class="form-label" for="maxPeople">số lượng người tối đa</label>
+            <input class="form-control" id="maxPeople" type="number" formControlName="maxPeople"/>
+            <p style="color: red" *ngIf="createTravelTourForm.controls.maxPeople.hasError('required')
+      && (createTravelTourForm.controls.maxPeople.touched || submitted)">Thông tin này là bắt buộc.</p>
+            <p style="color: red" *ngIf="createTravelTourForm.controls.maxPeople.hasError('min')
+      && (createTravelTourForm.controls.maxPeople.touched || submitted)">Số lượng người phải lớn hơn 0.</p>
+            <p style="color: red" *ngIf="createTravelTourForm.controls.maxPeople.hasError('pattern')
+      && (createTravelTourForm.controls.maxPeople.touched || submitted)">Vui lòng nhập số.</p>
+          </div>
+          <div class="col-sm-9">
+            <label class="form-label" for="schedule">Lịch trình</label>
+            <input class="form-control" id="schedule" type="text" formControlName="schedule"/>
+          </div>
+          <div class="col-sm-9">
+            <label class="form-label" for="targetPeople">Đối tượng tham gia</label>
+            <input class="form-control" id="targetPeople" type="text" formControlName="targetPeople"/>
+          </div>
+          <div class="col-sm-9">
+            <label class="form-label" for="cost">Chi phí</label>
+            <input class="form-control" id="cost" type="number" formControlName="cost"/>
+          </div>
+          <div class="form-select">
+            <label for="rangeType">Phạm vi</label>
+            <div class="col-sm-9">
+              <select class="form-control" id="rangeType" formControlName="rangeType">
+                <option value="">Phạm vi</option>
+                <option *ngFor="let rangeType of rangeTypes" [ngValue]="rangeType">
+                  {{rangeType.rangeName}}
+                </option>
+              </select>
+              <p style="color: red" *ngIf="createTravelTourForm.controls.rangeType.hasError('required')
+      && (createTravelTourForm.controls.rangeType.touched || submitted) ">
+                Thông tin này là bắt buộc.</p>
+            </div>
+          </div>
+          <div class="form-select">
+            <label for="tourType">Loại tour</label>
+            <div class="col-sm-9">
+              <select class="form-control" id="tourType" formControlName="tourType">
+                <option value="">Loại tour</option>
+                <option *ngFor="let tourType of tourTypes" [ngValue]="tourType">
+                  {{tourType.tourTypeName}}
+                </option>
+              </select>
+              <p style="color: red" *ngIf="createTravelTourForm.controls.tourType.hasError('required')
+      && (createTravelTourForm.controls.tourType.touched || submitted) ">
+                Thông tin này là bắt buộc.</p>
+            </div>
+          </div>
+          <div class="form-select">
+            <label for="member">Thành viên</label>
+            <div class="col-sm-9">
+              <select class="form-control" id="member" formControlName="member">
+                <option value="">Thành viên</option>
+                <option *ngFor="let member of members" [ngValue]="member">
+                  {{member.memberName}}
+                </option>
+              </select>
+              <p style="color: red" *ngIf="createTravelTourForm.controls.member.hasError('required')
+      && (createTravelTourForm.controls.member.touched || submitted) ">
+                Thông tin này là bắt buộc.</p>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <div class="text-center">
+        <button type="submit" class="btn btn-secondary mt-4 mx-2">Thêm mới</button>
+        <a [routerLink]="['/travel-tour/list']">
+          <button type="button" class="btn btn-primary mt-4 mx-2">Quay về</button>
+        </a>
+      </div>
+    </form>
+  </div>
+</div>

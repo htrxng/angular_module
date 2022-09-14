@@ -9,6 +9,7 @@ export class DeleteModalComponent implements OnInit {
   @Input() busId: number;
   @Input() licensePlates: number;
   @Output() confirmDelete = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {

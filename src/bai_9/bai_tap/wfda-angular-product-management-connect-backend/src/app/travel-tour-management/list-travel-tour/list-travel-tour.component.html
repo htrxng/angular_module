@@ -1,0 +1,49 @@
+<div class="container-fluid" style="margin-top: 30px">
+  <h1 style="text-align: center">Danh sách các tour du lịch
+  </h1>
+  <button class="btn btn-success pb-2" [routerLink]="['/travel-tour/create']" style="padding-bottom: 5px">Tạo Tour</button>
+  <div class="row">
+    <div class="col-lg-12">
+      <table class="table">
+        <thead class="table-dark">
+        <tr>
+          <th scope="col">Mã tour</th>
+          <th scope="col">Mã thành viên</th>
+          <th scope="col">Mã phạm vi</th>
+          <th scope="col">Mã loại tour</th>
+          <th scope="col">Tên tour</th>
+          <th scope="col">Địa điểm</th>
+          <th scope="col">Ngày khởi hành</th>
+          <th scope="col">Số lượng người tối đa</th>
+          <th scope="col">Lịch trình</th>
+          <th scope="col">Chi phí</th>
+          <th colspan="2">Thao tác</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let tour of tourList">
+          <td>{{tour.tourId}}</td>
+          <td>{{tour.member.memberId}}</td>
+          <td>{{tour.rangeType.rangeTypeId}}</td>
+          <td>{{tour.tourType.tourTypeId}}</td>
+          <td>{{tour.tourName}}</td>
+          <td>{{tour.address}}</td>
+          <td>{{tour.startDate}}</td>
+          <td>{{tour.maxPeople}}</td>
+          <td>{{tour.schedule}}</td>
+          <td>{{tour.cost}}</td>
+          <td>
+            <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal"
+                    (click)="sendDataToDelete(tour.tourId, tour.tourName)">
+              Xoá
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<app-delete-tour-modal [tourName]="tourName" [tourId]="id"
+(confirmDelete)="deleteTour($event)">
+</app-delete-tour-modal>

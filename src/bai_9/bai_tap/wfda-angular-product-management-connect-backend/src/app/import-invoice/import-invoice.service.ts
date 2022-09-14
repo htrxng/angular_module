@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import {environment} from '../../environments/environment';
-import {Supplier} from '../model/supplier';
+import {Supplier} from '../model/pharmarcy/supplier';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Medicine} from '../model/medicine';
+import {Medicine} from '../model/pharmarcy/medicine';
 import {FormGroup} from '@angular/forms';
-import {Employee} from '../model/employee';
+import {Employee} from '../model/pharmarcy/employee';
 
 
 const API_URL = `${environment.apiUrl}`;
