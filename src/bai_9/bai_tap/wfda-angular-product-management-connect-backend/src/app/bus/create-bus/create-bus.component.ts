@@ -13,6 +13,8 @@ export class CreateBusComponent implements OnInit {
   submitted = false;
   addBusForm: FormGroup;
   busWareHouseList: BusWareHouse[];
+  imgSrc: any;
+  fileUploader: any;
 
   constructor(private route: Router,
               private busService: BusService) {
@@ -40,7 +42,7 @@ export class CreateBusComponent implements OnInit {
     console.log(this.addBusForm);
     if (this.addBusForm.valid) {
       this.busService.create(this.addBusForm.value).subscribe(() => {
-        this.route.navigateByUrl('');
+        this.route.navigateByUrl('buses');
         this.submitted = false;
       });
     }

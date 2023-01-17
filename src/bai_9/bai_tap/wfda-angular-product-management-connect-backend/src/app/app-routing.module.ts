@@ -3,6 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {ListBusComponent} from './bus/list-bus/list-bus.component';
 import {EditBusComponent} from './bus/edit-bus/edit-bus.component';
 import {CreateBusComponent} from './bus/create-bus/create-bus.component';
+import {ListTravelTourComponent} from './travel-tour-management/list-travel-tour/list-travel-tour.component';
 
 
 const routes: Routes = [

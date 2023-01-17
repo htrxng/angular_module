@@ -1,5 +1,6 @@
 <div class="col-8 mx-auto">
   <div class="mx-auto shadow-lg p-3 mb-5 bg-white rounded-lg">
+    <img [src]="imgSrc" (click)="fileUploader.click()" alt="">
     <form [formGroup]="addBusForm" (ngSubmit)="createBus()">
       <fieldset class="w-75 mx-auto">
         <legend class="text-center my-4"><span
